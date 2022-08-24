@@ -1,0 +1,14 @@
+
+
+
+.footer{
+    background-color: tomato;
+    height: 70px;
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.footer a{
+    text-decoration: none;
+}
