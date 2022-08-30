@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/calendar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>MDHL | Home</title>
+    <title>MDHL | Calendar</title>
 </head>
 <body class="body">
     <div id="app">
         <header class="header d-flex justify-content-between">
             <img src="./assets/logo2.png" alt="mylogo" class="header-logo">
-            <div class="d-flex gap-4 mt-3">
+            <div class="d-flex gap-3 mt-3">
                 <div class="d-flex flex-column">
                     <a href="./login.html">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAFZ0lEQVRYhc2Ya4ycUxjHf//z1m4j2morKCIuqYZWUxrVhLA6u22qEnyoFhEkQlx22oagLbJEtS7N2tlSIqGJCNpIROmyO7O2EpcKUbWEutZdUlrbsts1cx4fZrZmd9+Z993pEv+P73nO8/zec3uec+B/Lh2og7kpG93rmaSAY81ziIQh/hDsGGFsb0mq6z8HrE3ZaQaXA7OBKWX8GPCRRKuyPNO2RFv/VcDaJrvQxDJgBmAGHws2m+iU5xvv2APgPKPMcZw8pyLOBSYXXLyDY0XmJr08rIB1TTYxJ9YKEsBvEmuzjnUdN+qLuP29uEpwvcFYQauHG9qT+vKAAWel7FLB40CVxENZx6qOG7U3DthAnXW/jRp5MEsxbgZ6TFzTXq8NFQMmmmwpYgXi08BzSesidQ60mZuy6l7HOTKmm+dICTPxjbJsTC/RV6F+H7apONYDJyFuz9TrgSEDFuDuM8js6+biN2/TnuL2hgZzb4wjKbgTGBfiIou4J+doDBvxuSkb3QsvAuchbisFGQpYmNZnDNqrYV5LUvv6GZgp0cyTwFWlfrBIf2Lcm0myCsmKG2qespHBHjYBNTIWphdpfSRgYUG/D3zX083MgSMHkGiyhYhnY8AVB7o1ndSDA78XRvJdYIJynDZwWbiBHbx4DKgKjAVhcIVedw0FDsBgec0jdsjA7y1JdeG5BBhpAY8ODlWkRLNdBMwyeDBsQwAkHrYjME4eKiAwJshydlhDZrG2IVYDc2pTNq8kIMYy4FcfcH+pKE5MqQAu794xoVRblbFKsMvgjlDA85psOnCGwdpy51xOBJUCOs+gKe5TS1JdBmuBmXWNNm0QoBOXkc+d68pGEdlKAT3sLtfujHWA2QguHwRo+cTfGZV+fJbQwzeOHHxdrr1tkT4HPjGjrh9gTaMdKpgs2BwVpGMxO4Dw3V1e2e4ePoy0MjYDU+embPR+QIlJgAxCd26x5t/NQUB3BYC/H9XNvigjiU5AvZ5J+wGDgGPy8OWnAGDXWGYAh1cAOH7neM6IMjLLM5jyTA7ACrtLLnrqvOitAA4Al4vua9AFIPhnik3xC9fxv7EV+KUCvp/H7Y5egwrol6/zaxD2AphnVJSDDQ3qlbgS6BkCXI/BlRsaFD36OcYASIXqHMDgWwBnHBcnWrperwk2xqUzeKk9qdZYti7PIBWYAFw1nwHmXfw0lvOsBnwMUw+sjutXxhTAjzC27wdMX6ffgU4Z58Z19PpibQFWRQYUK9uTejeuX6AGsa3vulpcLLQCp85K2YlxPe2upiHKZlcVd8f1V9dkE4HJePYvh+Jc/Bz5AjZOlQzAqKrowiGOTZ+88rGVZ+kP2Fav9yS2CG4IKyxD9SeHDosN+Ruf4HrgrXRSHwwCBMCzEhgX5Fga5XB2sx0f5Bh0hxgol+O5mkaLPB2qR7LMYKw3VhR/H3RAJ1KWAc7CMyOzWNuK2+avt2DnT8xx4lpgHjAiKnBBWcEmczyR28mrHQ3qV7LVNdo0H7BF0JFOak5ZwNpGO8ECthr8UA1ntiTVNafRJvzlSMpxBcbRMaFK6SeMp52jqa1eP9Y+bmNsH1uACYGY1lqvfvVAaIpLNNsCjGeB1028IeMWKF0NV6g/ZDxk4hygxsSCsFeGyIv7MEOFyuD29qRC70GDrp19yizSysIlykrZDINMcGspOIjzeNRs82U8yfBP8R6Jq9P1eqGcUckR7FN7vTYEYqpBZtjQjLZcjqlRcDDEB8zEGrsAz3JgZoVobwtWpJN6JW6Hip6AZ62x05VjgYnzBadQeiY8+VfYTcDzxRniXwUsVt8juoljnDgMwBs7ZXxf5fjsQB/R//f6G4kE+IBsLXF4AAAAAElFTkSuQmCC">
@@ -28,60 +28,80 @@
                 </div>
             </div>
         </header>
-        <main>          
-            <div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+        <main>
+            <h1 class="text-white text-center py-3">Fall Schedule</h1>
+            
+            <h3 class="text-white py-3 text-center">September</h3>
+                <div class="container-calendar d-flex flex-column gap-3 mx-auto">
+                    <div class="container-calendar-game">
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <h2 class="text-center fs-1">U1 vs. U4</h2>
+                            <button class="btn btn-outline-dark">See detail</button>
+                        </div>
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <p>Location Court</p>
+                            <p class="me-3 fw-bold">9:30 a.m</p>
+                        </div>
+                    </div>
+                    <div class="container-calendar-game">
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <h2 class="text-center fs-1">U1 vs. U4</h2>
+                            <button class="btn btn-outline-dark">See detail</button>
+                        </div>
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <p>Location Court</p>
+                            <p class="me-3 fw-bold">9:30 a.m</p>
+                        </div>
+                    </div>
+                    <div class="container-calendar-game">
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <h2 class="text-center fs-1">U1 vs. U4</h2>
+                            <button class="btn btn-outline-dark">See detail</button>
+                        </div>
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <p>Location Court</p>
+                            <p class="me-3 fw-bold">9:30 a.m</p>
+                        </div>
+                    </div>     
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./assets/hockey1.jpg" class="d-block w-100 rounded" alt="hockey image">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Productos de calidad</h5>
-                            <p>Consulta por descuentos a clientes</p>
+
+                <h3 class="text-white py-3 text-center">October</h3>
+                <div class="container-calendar d-flex flex-column gap-3 mx-auto">
+                    <div class="container-calendar-game">
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <h2 class="text-center fs-1">U1 vs. U4</h2>
+                            <button class="btn btn-outline-dark">See detail</button>
+                        </div>
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <p>Location Court</p>
+                            <p class="me-3 fw-bold">9:30 a.m</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="./assets/hockey2.jpg" class="d-block w-100 rounded" alt="hockey image">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Sabemos lo que hacemos </h5>
-                            <p>Son nuestra familia.</p>
+                    <div class="container-calendar-game">
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <h2 class="text-center fs-1">U1 vs. U4</h2>
+                            <button class="btn btn-outline-dark">See detail</button>
+                        </div>
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <p>Location Court</p>
+                            <p class="me-3 fw-bold">9:30 a.m</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="./assets/hockey3.jpg" class="d-block w-100 rounded" alt="hockey image">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5> En agosto, 50% de descuento en collares</h5>
-                            <p>En Mundo Patitas amamos las mascotas, amamos lo que hacemos</p>
+                    <div class="container-calendar-game">
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <h2 class="text-center fs-1">U1 vs. U4</h2>
+                            <button class="btn btn-outline-dark">See detail</button>
+                        </div>
+                        <div class="d-flex justify-content-between mx-3 my-2">
+                            <p>Location Court</p>
+                            <p class="me-3 fw-bold">9:30 a.m</p>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-            <h3 class="text-white text-center">Welcome to MDHL</h3>
-            
-
-            
-            
         </main>
-        
+
         <footer class="footer d-flex flex-row gap-3 justify-content-evenly align-items-center">
-            <a href="#">
+            <a href="./home.html">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACHUlEQVRoge3YPWsUURjF8TtiYopoYRQULIREAiJiQLCxsDARwSaFX8FSm4BoIdbaWlgIFmn9BGIRX8BUYimiMaKksBFDipgYfhY7kcl1Z5jdzOyIzB+GXeY+9zzn7N67MzshtLS0tPx3YAT38S097mGkaV+lwFEs+ps3ONa0v0JwGstdzG/zFWeb9tkVzGItY3YT19NjM3N+DbM5GsdxEecxPCjjCW5hK2PyO6YzNdPpuW22cBtJpuZCFPTpIMyPYD5aJu8x2aV2Mh3LMi/d3LgTjW3Vbf4QnkdNX+JwwZyDeBbNeY0juBudV6f5bpv1IYZKzB1Ka7N8xpOBBMBl/Mj0+YWbfehcw0ZsutYAuGHnZl3FlV3ozdi5uesJgGE8jvQ/4mQF2ifwrrYAOIxXkfYCxipp0OkxlmrG5P4glBU+haVI9JEaLjLYiwdRry+Y6ldwRmeN17Mu8/vGrGKmH6GV2tZlcd9urOTV7ynQWk5fP1VrsSe2ey/1PBP702U02uA3cACXMJpXn+QNxKJ/JiRJqTn90muvoiXUT/MJfMhZx9KxiSp7VhoghHA1hDBeMD6e1lRG1QH2VVRTmqoDDJw2QNO0AZqmDdA0PQdQ4wMn9HyNKBvgZ+b9XB0hUs25nJ67Fn9RcH9TFwtlvJW9G50KISyGEAbzvDKEjRDCuSRJ3lamiCmdJ3HrNX7q6zp/7s9UZrylpaWlpeVf5jeYkmg4RsHt+AAAAABJRU5ErkJggg==">
             </a>
             <a href="./games.html">
@@ -90,7 +110,7 @@
             <a href="./teams.html">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADhXXHAAAAABmJLR0QA/wD/AP+gvaeTAAAENElEQVRYhe2YXYhWVRSGnz3jmBohaOVPZZOGCioZSUJaYEgXFv0ZQVToVYQXRVGRoBRC0YX0Y5Qp5I0pRERQFAReRCWhNURYFhkiacoYjv2p48/4dHHW5Mfn2We+b2ZMolk3h/O9737Xu/ess9feA0MxFP+tSIMppk4GbgUmAeOBb1JKqwczx4BDXahu9+zoiQmc/1Bb1LXqafWE+r76oHq9+kAYPqpuUW8532ZfDkPb1Ol1WFKfVj9U/wzeioHka7hm1eHAtcBE4Cgg8DGwHViQUjpaMbYd+AiYDswDfgGuAUYD+1JKn/R3AvWJLlZfV7tqavG0ujtqcnrfKqDOjnEn6+r6lDplMIzOUTtD9ID6pvpcJFXd0qTe1hj3jrpCXR3vJ6Jcru6v0fFh8Lj6iNpag62MJKua1Hwxxs2M96Q+pn4QC/CzOrY/ZntnvawEuzGw5U1qLo9x80uwRwN7ITe+pUL7dmAvsK4EOxzPS5oxS/FBARwpwV4DOoF7mtSEKPx3M1iLekj9rknNr9Qj6ogM3lsOI8vwqpXtpnpr6wKmxpbWiNHLgeuAfcDxDO1Y5LygEc1a8c/VvepZhtWZUV9vNKn5doy7KoP/oO4vywnVK9sDXAZcWsHpbtwqAG0UzeSPekC9EpgG7Ekp2ZSq2q1uz2CtFk2hU725Qb07qzSDs03NlUil+E6Lnl66Uatz4yPb24BWm/qXuk+9IcOZEvl29sfs0ugsX1Zw1kUNVrZcdX7wnq3gfGHRipc2bTYENkWS9gy+KPC1fei8Fby5GXxCbFnv9ctoiCyOJOszeKvaYXGguSvDuTuMfFaRZ03kWTIQs62euQHkVnd24Bsz+MbAZ2bwETGZ79W2Kj9VWxcppR6gI157MrSD8TyRwU/G81AG76FoBLtSSiczHKAPsxEXxfNYBu/tNrlEvZMobbFh8BQwpi8jlWbV+4DFFC3ycIZ2Wzxz+OE6Xll0APPUZ9TGW606Sn1I3RG11qUuKOGNU1+Nj+uQekVGb1LgPcEfV8KZpv4U+TrVVeqEKpMjLS54v8agI+p6dWIdb7662eJQrsVJalYfCzArdg1j3GbrzrTqhbGyB4LXHbvEmHqxyerXQTqgPlVLsjjR31GTUIvWuEQdVmW0RmNY8LfVaHSEbqrhDVfvV78Nzu5/FkMdHT+ovqSOqksyxTN3p+PqBnVOIwYrjM8Jnd6/zlbr/hlicWZ+0uJcvV8dSyy9llwn1BnqwcA3mdlrB2C6PUrCyDOjhPNE4M8ndQcwA7gX+K2Gl4A1wFRgWUqp7HozWKYfprjW7AJW1sEjgQ3Aj6i/Wx2vnCuTdYbX9OGjK6mLgLKv+XGKC+HklNKef8FsO7Ab2A+UXfF3lF4f1BaK03wb8Ok5c3h23ETR8UanlE7Xg1Xbzi5gNrDwHBnLRfOH76EYiqH4n8Xfv+kDHL0YKRYAAAAASUVORK5CYII=">
             </a>
-            <a href="./calendar.html">
+            <a href="#">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAACpUlEQVRYhe2YMUhVURzGfye0NDDICCLKwMHBsAhpSKQczDEIh3hLuJs2tBlNTQkNQUstCoINDU1NumhDUzpEi1CSRbQ1lQ3Cr+Gdh9f77n1e7fkM8gO53/nOd+75uOd/zrteOMD/DvWCuqguqD2N8lUQCgRcBNZjsyWEcK0RvgoObRcQOAu8iH8dDfQB0JQW1KPAqRxPk9pZ4F679X0PIfzKDajeAqaBlpybnwE+5vTVw/dbvR1CeJkZEJgAngNPEtpCgn8F8mqmHr67wH0gN+AxYDmE8KkiqBuJ/o1kXxL18KnLwI2kv6oGM7AGlCL/3EAfUGwX36Fck0eAsQb6qqGuqiM7GlRHqCPqai3DqroUeZv6Rm2L7bnKkaDOqH2RT6rDkY+r45EPq5OR96kzkXeqczlzLKUDZi3xpXg9AfTHK8AgmwdrP9AV+WWgJzG2Mr4n9hG9/ZF3xHtlzVEZm434BGcjb1Yfqs2xPaG2Rz6aeJoltTfyIXUo8l61FHmnOhp5uzqRM8dskSX+p2pw22NGvcnmctYbKyGEV7UMRc7Bx5TfPr4ltONALzCf8p6P1w8pfRB4B/xIaKeBVqBmwC3IWuIcbUA1Y/yUOpWhqw6ktKrlzNKKHNT7ioOAf4simwRgUn2QaLcCqOl3vpNRv5pxj1l1PdFuA37WK+Br4G2i3QXcAx6lfJXNNJ3SnwGzwEpCuwIMsBMc7OJd4J8PWLQGu9XBRPsiQEqD8q9Dlg7Qqybn6y6csoKcelt077CYmmvnLwshhKwjo2HIDah21OqvMzZCCGtZHZkBYg3N7Wmk6jmvZ+mZAUMI8+q5vP49wEYIYS1d/9QKkPfIG410wDWgpB7ejzDAMKl/5rd8H7T8QfEp5Y86+4EvwFgI4f0+zX+AxuMP1otp5WUoLqQAAAAASUVORK5CYII=">
             </a>
         </footer>
@@ -100,5 +120,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3"></script>
+    <script src="./app.js"></script>
 </body>
 </html>

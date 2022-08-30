@@ -3,12 +3,10 @@
     background-image: url("../assets/bg2.jpg");
     /* background-repeat: no-repeat; */
     background-size: inherit;
-
 }
 main {
     position: relative;
 }
-
 
 /*------------------------------  Header -----------------------------*/
 .header{
@@ -27,12 +25,10 @@ main {
     max-width: 40px;
 }
 
-
 .red-color{
     color:rgb(162, 6, 6);
     background-color: rgb(162, 6, 6);
 }
-
 
 
 /*------------------------------  Footer -----------------------------*/

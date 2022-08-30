@@ -1,0 +1,8 @@
+.carousel img{
+    max-height: 200px;
+}
+.accordion-home{
+    background-color: rgba(0, 255, 255, 0.876) !important;
+    border-radius: 20px !important;
+    box-shadow: 1px 1px 5px black;
+}
