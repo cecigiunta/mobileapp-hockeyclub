@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/games.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -15,7 +15,7 @@
     <div id="app">
         <header class="header d-flex justify-content-between">
             <img src="./assets/logo2.png" alt="mylogo" class="header-logo">
-            <div class="d-flex gap-4 mt-3">
+            <div class="d-flex gap-3 mt-3">
                 <div class="d-flex flex-column">
                     <a href="./login.html">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAFZ0lEQVRYhc2Ya4ycUxjHf//z1m4j2morKCIuqYZWUxrVhLA6u22qEnyoFhEkQlx22oagLbJEtS7N2tlSIqGJCNpIROmyO7O2EpcKUbWEutZdUlrbsts1cx4fZrZmd9+Z993pEv+P73nO8/zec3uec+B/Lh2og7kpG93rmaSAY81ziIQh/hDsGGFsb0mq6z8HrE3ZaQaXA7OBKWX8GPCRRKuyPNO2RFv/VcDaJrvQxDJgBmAGHws2m+iU5xvv2APgPKPMcZw8pyLOBSYXXLyDY0XmJr08rIB1TTYxJ9YKEsBvEmuzjnUdN+qLuP29uEpwvcFYQauHG9qT+vKAAWel7FLB40CVxENZx6qOG7U3DthAnXW/jRp5MEsxbgZ6TFzTXq8NFQMmmmwpYgXi08BzSesidQ60mZuy6l7HOTKmm+dICTPxjbJsTC/RV6F+H7apONYDJyFuz9TrgSEDFuDuM8js6+biN2/TnuL2hgZzb4wjKbgTGBfiIou4J+doDBvxuSkb3QsvAuchbisFGQpYmNZnDNqrYV5LUvv6GZgp0cyTwFWlfrBIf2Lcm0myCsmKG2qespHBHjYBNTIWphdpfSRgYUG/D3zX083MgSMHkGiyhYhnY8AVB7o1ndSDA78XRvJdYIJynDZwWbiBHbx4DKgKjAVhcIVedw0FDsBgec0jdsjA7y1JdeG5BBhpAY8ODlWkRLNdBMwyeDBsQwAkHrYjME4eKiAwJshydlhDZrG2IVYDc2pTNq8kIMYy4FcfcH+pKE5MqQAu794xoVRblbFKsMvgjlDA85psOnCGwdpy51xOBJUCOs+gKe5TS1JdBmuBmXWNNm0QoBOXkc+d68pGEdlKAT3sLtfujHWA2QguHwRo+cTfGZV+fJbQwzeOHHxdrr1tkT4HPjGjrh9gTaMdKpgs2BwVpGMxO4Dw3V1e2e4ePoy0MjYDU+embPR+QIlJgAxCd26x5t/NQUB3BYC/H9XNvigjiU5AvZ5J+wGDgGPy8OWnAGDXWGYAh1cAOH7neM6IMjLLM5jyTA7ACrtLLnrqvOitAA4Al4vua9AFIPhnik3xC9fxv7EV+KUCvp/H7Y5egwrol6/zaxD2AphnVJSDDQ3qlbgS6BkCXI/BlRsaFD36OcYASIXqHMDgWwBnHBcnWrperwk2xqUzeKk9qdZYti7PIBWYAFw1nwHmXfw0lvOsBnwMUw+sjutXxhTAjzC27wdMX6ffgU4Z58Z19PpibQFWRQYUK9uTejeuX6AGsa3vulpcLLQCp85K2YlxPe2upiHKZlcVd8f1V9dkE4HJePYvh+Jc/Bz5AjZOlQzAqKrowiGOTZ+88rGVZ+kP2Fav9yS2CG4IKyxD9SeHDosN+Ruf4HrgrXRSHwwCBMCzEhgX5Fga5XB2sx0f5Bh0hxgol+O5mkaLPB2qR7LMYKw3VhR/H3RAJ1KWAc7CMyOzWNuK2+avt2DnT8xx4lpgHjAiKnBBWcEmczyR28mrHQ3qV7LVNdo0H7BF0JFOak5ZwNpGO8ECthr8UA1ntiTVNafRJvzlSMpxBcbRMaFK6SeMp52jqa1eP9Y+bmNsH1uACYGY1lqvfvVAaIpLNNsCjGeB1028IeMWKF0NV6g/ZDxk4hygxsSCsFeGyIv7MEOFyuD29qRC70GDrp19yizSysIlykrZDINMcGspOIjzeNRs82U8yfBP8R6Jq9P1eqGcUckR7FN7vTYEYqpBZtjQjLZcjqlRcDDEB8zEGrsAz3JgZoVobwtWpJN6JW6Hip6AZ62x05VjgYnzBadQeiY8+VfYTcDzxRniXwUsVt8juoljnDgMwBs7ZXxf5fjsQB/R//f6G4kE+IBsLXF4AAAAAElFTkSuQmCC">
@@ -28,63 +28,46 @@
                 </div>
             </div>
         </header>
-        <main>          
-            <div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+        <main>
+            <h1 class="text-white my-4 text-center">Games</h1>
+            <form  class="my-4 mx-auto col-10 d-flex">
+                <input type="text" class="input-search col-8 text-white">
+                <span class="search-btn text-white lead ms-1">Search</span>
+            </form>
+           
+            <div class="games-home col-11 mx-auto text-white d-flex flex-column align-items-center gap-4">
+                <div class="game-home col-10 mx-auto text-center">
+                    <h3>Arsenal vs. Boston</h3>
+                    <h5>07/10</h5>
+                    <h6 class="text-info">
+                        <a class="link-games" href="./detail-game.html">See detail</a>
+                    </h6>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./assets/hockey1.jpg" class="d-block w-100 rounded" alt="hockey image">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Productos de calidad</h5>
-                            <p>Consulta por descuentos a clientes</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./assets/hockey2.jpg" class="d-block w-100 rounded" alt="hockey image">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Sabemos lo que hacemos </h5>
-                            <p>Son nuestra familia.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./assets/hockey3.jpg" class="d-block w-100 rounded" alt="hockey image">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5> En agosto, 50% de descuento en collares</h5>
-                            <p>En Mundo Patitas amamos las mascotas, amamos lo que hacemos</p>
-                        </div>
-                    </div>
+                <div class="game-home col-10 mx-auto text-center">
+                    <h3>Arsenal vs. Boston</h3>
+                    <h5>07/10</h5>
+                    <h6 class="text-info">
+                        <a class="link-games" href="./detail-game.html">See detail</a>
+                    </h6>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-            <h3 class="text-white text-center">Welcome to MDHL</h3>
+                <div class="game-home col-10 mx-auto text-center">
+                    <h3>Arsenal vs. Boston</h3>
+                    <h5>07/10</h5>
+                    <h6 class="text-info">
+                        <a class="link-games" href="./detail-game.html">See detail</a>
+                    </h6>
+                </div>               
+                <span class="search-btn text-white lead ms-1 my-4">See calendar</span>
+            </div>    
             
-
             
             
         </main>
-        
         <footer class="footer d-flex flex-row gap-3 justify-content-evenly align-items-center">
-            <a href="#">
+            <a href="./home.html">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACHUlEQVRoge3YPWsUURjF8TtiYopoYRQULIREAiJiQLCxsDARwSaFX8FSm4BoIdbaWlgIFmn9BGIRX8BUYimiMaKksBFDipgYfhY7kcl1Z5jdzOyIzB+GXeY+9zzn7N67MzshtLS0tPx3YAT38S097mGkaV+lwFEs+ps3ONa0v0JwGstdzG/zFWeb9tkVzGItY3YT19NjM3N+DbM5GsdxEecxPCjjCW5hK2PyO6YzNdPpuW22cBtJpuZCFPTpIMyPYD5aJu8x2aV2Mh3LMi/d3LgTjW3Vbf4QnkdNX+JwwZyDeBbNeY0juBudV6f5bpv1IYZKzB1Ka7N8xpOBBMBl/Mj0+YWbfehcw0ZsutYAuGHnZl3FlV3ozdi5uesJgGE8jvQ/4mQF2ifwrrYAOIxXkfYCxipp0OkxlmrG5P4glBU+haVI9JEaLjLYiwdRry+Y6ldwRmeN17Mu8/vGrGKmH6GV2tZlcd9urOTV7ynQWk5fP1VrsSe2ey/1PBP702U02uA3cACXMJpXn+QNxKJ/JiRJqTn90muvoiXUT/MJfMhZx9KxiSp7VhoghHA1hDBeMD6e1lRG1QH2VVRTmqoDDJw2QNO0AZqmDdA0PQdQ4wMn9HyNKBvgZ+b9XB0hUs25nJ67Fn9RcH9TFwtlvJW9G50KISyGEAbzvDKEjRDCuSRJ3lamiCmdJ3HrNX7q6zp/7s9UZrylpaWlpeVf5jeYkmg4RsHt+AAAAABJRU5ErkJggg==">
             </a>
-            <a href="./games.html">
+            <a href="#">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAYAAADFniADAAAABmJLR0QA/wD/AP+gvaeTAAAEMElEQVRYhc2YaYhWZRSAnzPjNI24NDVaVhRtJEIqlaaGZpgyRotC9aMoMloIWn5qC1SQGEFQP4JCKghJkwQjRGlxIbS0RIvyR9mgZpK51WTjpI5PP9536pvl++bOpIwHLt/97j3nvM+7nXPeC6ehRH82rjYCU/PfNuCdiNjen0BV6l61RW02yeP9BpShxmWQO9X78/2o/oZ6Tj2mnqUuUX9ufzegjMFg4AZgPHA5MAIYnF+3AL8BTcBmYG1E7O0DVyPwBfAnMB34oBz9KHVRnmfVv9Wd6kZ1hfqhukH9oUTnuPqxemNRGrUh281TJ2Y/s7tTfDBDHFRfUa9Xays4rlZHq8+oTdnxq2qPO1q9J+uPUV9Qj6pDOiuNzeTL1KFFe1xiX6POzw3dV0B/kbpbjTwLa7pTelptUwf2FqiTn23qsh50qtV96kJ1WG53bqlOVf4dmO+f+B9ANwNXZF+VZBzQAKwEZuR2V3UH1S4L1LXq7ZXWUwlIlTpFfQ/4iDK7uZPMBI4Bn5J24B7g21KFUidHgAeA+cBy4Ii6GdgB7CeFgaPAecAwUpi4DhgKHALmAXcUhFoPHCaN1IqIsByUEbFEXQpMyQYTSPHqAjqO6l5SnHoXWA2siohW9dZKNOpw4JrcgauB4aRp7CDtUJKTc0ScANbmq9RhHVAdEYcrtFuVfZWTxqyzEpgFHCdNYxcnANuAOvW2ct4i4kglIPVKYAzwfQWomcCuiPguA26MiEPlHNao63Muek29pILjzrbnqHPV39Vf1HPL6FWrB9Q31Prc1rPd6UaJ0UBgAfAIUAtsJeWmJmBfvtpIi7wBuJC00CcA1aTN8VhE7CkDNYm0wGdl/+8D4yLi6yI9H6E+mXPdfsvLYXWdKduPLOD3RbVVHaS+baqlOoekjiNVwVk9affVkjZGK/BrbysD9RtSWJkB7AY+i4geU9IpE/+rBObkJKx6d38C1aqb1B1qXd4UbWpDfwItzRVIY362Rv2yv4CmqVsy0MP52RBT7fR8JdsuCTSHhltIgbAvQ1xPChUXAT8BjRHRHrWnATV0qgoqQuUhfgs4H/gLOAHUAbt6ADkz2+whJe91pKpheUQcK9FrBA4AX/Xg71+g6TnKblIn5arwTXVHAdvJeUdN7kFvp7q4J38DsnItsJAUvadGREt+XqhDRUQdT5rSpwpBkY44F5Pmv+WkkXSUR4FmUjqqKO1h/irS+ll9KmjU0cC9wOtFOt0OdSL/nvQPHqaD7WLSJnipiE071NZ8X/hAWRCoHlgBXAbcFRHNvYFaDWwHXlYHnSSgm0jH+muB2RFROIpXAeRYMgcYCWxQZ6pn9IHlUvUh9XPgE9J3h4kR0aUOLyw53vxYUjO15uR5sIer2Y6yxfQZoMiRq4t0WdhqDWltjQXO7oWvP0hLYHNENPUF5rSWfwDqw2f2VoVU4AAAAABJRU5ErkJggg==">
             </a>
             <a href="./teams.html">

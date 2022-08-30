@@ -1,0 +1,15 @@
+.container-calendar {
+    background-color: #1003ff38;
+    border-radius: 24px;
+    padding: 15px 20px;
+}
+
+.container-calendar-game {
+    gap: 20px;
+    background-color: rgba(241, 241, 241, 0.884);
+    width: 100%;
+    border: 3px solid #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 18px 12px -13px rgba(0,0,0,0.63);
+    transition: all .2s ease-in-out;
+}

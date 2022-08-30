@@ -1,0 +1,50 @@
+[
+    {
+        "_id": "001",
+        "teams": "U1 vs. U2",
+        "month_date": 9,
+        "day_date": 10,
+        "time": "9:30",
+        "location": "AJ Kat"
+    },
+    {
+        "_id": "002",
+        "teams": "U3 vs. U4",
+        "month_date": 9,
+        "day_date": 27,
+        "time": "9:00",
+        "location": "Moron"
+    },
+    {
+        "_id": "003",
+        "teams": "U5 vs. U6",
+        "month_date": 10,
+        "day_date": 1,
+        "time": "19:30",
+        "location": "Loma Hermosa"
+    },
+    {
+        "_id": "004",
+        "teams": "U7 vs. U8",
+        "month_date": 10,
+        "day_date": 10,
+        "time": "9:30",
+        "location": "Madrid"
+    },
+    {
+        "_id": "005",
+        "teams": "U9 vs. U2",
+        "month_date": 10,
+        "day_date": 27,
+        "time": "9:30",
+        "location": "Loma Hermosa"
+    },
+    {
+        "_id": "006",
+        "teams": "U3 vs. U8",
+        "month_date": 10,
+        "day_date": 27,
+        "time": "13:30",
+        "location": "Berazategui"
+    }
+]

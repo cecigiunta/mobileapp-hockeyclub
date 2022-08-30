@@ -1,14 +1,51 @@
+.body{
+    /* background-color: rgba(3, 0, 33, 0.956); */
+    background-image: url("../assets/bg2.jpg");
+    /* background-repeat: no-repeat; */
+    background-size: inherit;
+
+}
+main {
+    position: relative;
+}
+
+
+/*------------------------------  Header -----------------------------*/
+.header{
+    background-color: rgba(0, 0, 0, 0.524);
+    padding: 10px;
+}
+.header-logo{
+    width: 90px;
+    height: 80px;
+}
+.header-logout{
+    max-height: 40px;
+}
+.img-header{
+    max-height: 40px;
+    max-width: 40px;
+}
+
+
+.red-color{
+    color:rgb(162, 6, 6);
+    background-color: rgb(162, 6, 6);
+}
 
 
 
+/*------------------------------  Footer -----------------------------*/
 .footer{
-    background-color: tomato;
+    background-color: rgba(0, 0, 0, 0.642);
     height: 70px;
     padding: 20px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 }
 .footer a{
     text-decoration: none;
+    color: white;
 }
+
