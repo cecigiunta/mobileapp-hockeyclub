@@ -15,16 +15,12 @@
     <div id="app">
         <header class="header d-flex justify-content-between">
             <img src="./assets/logo2.png" alt="mylogo" class="header-logo">
-            <div class="d-flex gap-4 mt-3">
-                <div class="d-flex flex-column">
+            <div class="d-flex gap-3 mt-3">
                     <a href="./login.html">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAFZ0lEQVRYhc2Ya4ycUxjHf//z1m4j2morKCIuqYZWUxrVhLA6u22qEnyoFhEkQlx22oagLbJEtS7N2tlSIqGJCNpIROmyO7O2EpcKUbWEutZdUlrbsts1cx4fZrZmd9+Z993pEv+P73nO8/zec3uec+B/Lh2og7kpG93rmaSAY81ziIQh/hDsGGFsb0mq6z8HrE3ZaQaXA7OBKWX8GPCRRKuyPNO2RFv/VcDaJrvQxDJgBmAGHws2m+iU5xvv2APgPKPMcZw8pyLOBSYXXLyDY0XmJr08rIB1TTYxJ9YKEsBvEmuzjnUdN+qLuP29uEpwvcFYQauHG9qT+vKAAWel7FLB40CVxENZx6qOG7U3DthAnXW/jRp5MEsxbgZ6TFzTXq8NFQMmmmwpYgXi08BzSesidQ60mZuy6l7HOTKmm+dICTPxjbJsTC/RV6F+H7apONYDJyFuz9TrgSEDFuDuM8js6+biN2/TnuL2hgZzb4wjKbgTGBfiIou4J+doDBvxuSkb3QsvAuchbisFGQpYmNZnDNqrYV5LUvv6GZgp0cyTwFWlfrBIf2Lcm0myCsmKG2qespHBHjYBNTIWphdpfSRgYUG/D3zX083MgSMHkGiyhYhnY8AVB7o1ndSDA78XRvJdYIJynDZwWbiBHbx4DKgKjAVhcIVedw0FDsBgec0jdsjA7y1JdeG5BBhpAY8ODlWkRLNdBMwyeDBsQwAkHrYjME4eKiAwJshydlhDZrG2IVYDc2pTNq8kIMYy4FcfcH+pKE5MqQAu794xoVRblbFKsMvgjlDA85psOnCGwdpy51xOBJUCOs+gKe5TS1JdBmuBmXWNNm0QoBOXkc+d68pGEdlKAT3sLtfujHWA2QguHwRo+cTfGZV+fJbQwzeOHHxdrr1tkT4HPjGjrh9gTaMdKpgs2BwVpGMxO4Dw3V1e2e4ePoy0MjYDU+embPR+QIlJgAxCd26x5t/NQUB3BYC/H9XNvigjiU5AvZ5J+wGDgGPy8OWnAGDXWGYAh1cAOH7neM6IMjLLM5jyTA7ACrtLLnrqvOitAA4Al4vua9AFIPhnik3xC9fxv7EV+KUCvp/H7Y5egwrol6/zaxD2AphnVJSDDQ3qlbgS6BkCXI/BlRsaFD36OcYASIXqHMDgWwBnHBcnWrperwk2xqUzeKk9qdZYti7PIBWYAFw1nwHmXfw0lvOsBnwMUw+sjutXxhTAjzC27wdMX6ffgU4Z58Z19PpibQFWRQYUK9uTejeuX6AGsa3vulpcLLQCp85K2YlxPe2upiHKZlcVd8f1V9dkE4HJePYvh+Jc/Bz5AjZOlQzAqKrowiGOTZ+88rGVZ+kP2Fav9yS2CG4IKyxD9SeHDosN+Ruf4HrgrXRSHwwCBMCzEhgX5Fga5XB2sx0f5Bh0hxgol+O5mkaLPB2qR7LMYKw3VhR/H3RAJ1KWAc7CMyOzWNuK2+avt2DnT8xx4lpgHjAiKnBBWcEmczyR28mrHQ3qV7LVNdo0H7BF0JFOak5ZwNpGO8ECthr8UA1ntiTVNafRJvzlSMpxBcbRMaFK6SeMp52jqa1eP9Y+bmNsH1uACYGY1lqvfvVAaIpLNNsCjGeB1028IeMWKF0NV6g/ZDxk4hygxsSCsFeGyIv7MEOFyuD29qRC70GDrp19yizSysIlykrZDINMcGspOIjzeNRs82U8yfBP8R6Jq9P1eqGcUckR7FN7vTYEYqpBZtjQjLZcjqlRcDDEB8zEGrsAz3JgZoVobwtWpJN6JW6Hip6AZ62x05VjgYnzBadQeiY8+VfYTcDzxRniXwUsVt8juoljnDgMwBs7ZXxf5fjsQB/R//f6G4kE+IBsLXF4AAAAAElFTkSuQmCC">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABmJLR0QA/wD/AP+gvaeTAAADJklEQVRYhc2YzUtUURTAzzURx0lIklTGMmgb0SJskbVQaFPowjBqUxD9BYVptCkzsvoH+iKM2qVFi6CgoHAZUYsKIskipWJMw9SKml+Ld15z5/Xue/MleDZ35p6P+3vnHO6974ksIzGlOAM1ItIoIlUi8ktEPhljFsoBltfiwH7gJjABZMiVDPAOuAHsAxJLAZEAeoGvFCbTwFGgulwgXcAHa4HvwC3gANAKpDRjKWArcBAYUTtf3gO7S4EwwAmrFDNAn/ZJPv5JoB+YVf8/+r+wPlWQa9aTjQCri3yoeuC2FetKQUCaETQrAy5noBpoA7p1DO0NoAI4bWW5P1+QLk0pwIDDJgmcB+YCDTsHDLlKCQxaJdsVB5KwmnUkLCNAHfCMaHkKrHJkyC/ZhCuTvnGvGs64egS4EwPiy6jDvx74pjZHXCA1ZPeRPodNa54gvmxxxDmu+mnCNka8nRW8/cFV8zMFwgw64iSBebXZ689XWDZ+Q92POF82OOZdEmpvjJkXkQeBdXNgtul4NyL4zwJhouz9ddpyYICkiKzTudcRAV4UCPM8QvdKx5acvgHWW3VudnkDzcBinv2yAKQiYq21bFtEsmWyO3raFcAY81FEQjfCEDlljJmM0Ket3zmZabAoG6NWwDu3LsRk5Rwx5w/QZNk32IpKskfApugH/uezA2839U/lWWAUaIv3FgE2q99vYEVQ+VaVh/IJFvCtKsLnsK73xp+rtPQPxdsXOkTkakwgIyIbRaRFRBpEpB5Ii8hnEZkQkZfGGGJ4OnR8FLbAHiWdI+SQU5sO4DIwFdMzU8AloN0Rp47sTbA7zKAKmFSD3oBuO/AkBsAljwn0Ed6NEV0vvMR410LwmjGF19hni4QIykW8B24ieyAfCwVRmFq8ewbAPWCsTCC+jGlc8F5pVjphFKid/9+Hyi0ZYGckiAU0tMQwQ3mBKEwFMLxEIMNARTxFLpDBu3SXq2QZjVf8+z3QSfy+EidTQGfREAGgWuAkkC4QIq1+tWUBCUAlgB7gOjBO+FeIcdX3UOBXiFK/zyREZI2IVIvIDxH5YoxZLCXmspG/aRKUOAm+lM8AAAAASUVORK5CYII=">
                     </a>
-                    <span class="text-white opacity-50">LogIn</span>
-                </div>
-                <div class="d-flex flex-column">
-                    <img class="img-header" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABHElEQVRIidWUsU7DMBRF74sQQ74gRmFnYWNr2oGxDSsb0CyR2Po7ZUmkfkJSkDJCMiCxsbBTYX6ADh3yWGgVOQ40lSuRM95nv6trPxvoOqQK0u8NAZoCcFv2WoA4FEnxUBUtjecuzQHABdNUFQ+0CwGINK+l+w3pewzgWNU1CczSIQPmeC8G8qI/BgAxLwIQBWpdd8ntYI6k753Tyr51kqyWwtQRXfHh8uVzODhVC60S/IxiEydslc8fI29yNM/v1uLep6hVAt3jq6R6o9K6FPePr9W6qQQzWtlnjtLcjAFRINL82smyr/XIGjUQyVMMAHLUi8AcGTfYQHSjkzv0FzWgG9MFAPePR9XEuyrUExCHuoXbNOcS4Q77/jnfT2BPNYuC9KIAAAAASUVORK5CYII=">
-                    <span class="text-white opacity-50">Logout</span>
+                <div class="d-flex flex-column align-items-center me-3">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABmJLR0QA/wD/AP+gvaeTAAABqElEQVRYhe2YPUscURSGnxND8IMFa4uYJhbaBCT/II0/wUKEFOY/WJkfkiaBKPZW8aPMkg+wMYVlSEiXCFsYgvKkWBeWce7M7np3EPSp7sy8d8975hxmzwzcU07UCdQpYDJDrPOI+DvSTvWJeqRemIcL9VCdH8XMp0wmirRTMUvLpM4BP68OO8Dp0NlcZwFoXa3nIuLXQLvUpb5MjjIYwW7JeyyVaR7kCJSLezMpmjTzvU7QpJmXwGvgMiUYqxl1U30KEBGXEbEFrNB9XDRrBngGfFVXeyci4kNElJasiTK1gPfqW3W6Sthkz6wBn9XFlODhTSOoP4BUxjOF40WgrW5ExE52M8BsSdAqWsC22omIvdxmzoB/iWszwKPCuQ6wUTSSJNcfpbpbGB9OqnqmyQZ+BzyPiG8pQY4y1dEBXkXEdp1w3HfmGFjuN6K+UB8P/AtjGq4m1C27s3DpcNVEmXq8AdarBE02cG1p7uxwVcutMpNq4D9962X1S4ZYC33r30PtVNsjvzNW83HoNNR59cC879r7VjzwBvkKMQlMDZ3NdUb/CnHn+Q+LJR0loVph9AAAAABJRU5ErkJggg==">
                 </div>
             </div>
         </header>
@@ -66,17 +62,127 @@
             <div class="accordion-item accordion-home mx-auto col-10 py-2">
                 <h2 class="accordion-header" id="headingThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <h3 class="ms-4">About us</h3>
+                        <h2 class="ms-4 fw-bold">About us</h2>
                     </button>
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body d-flex flex-column align-items-center px-3">
+                        <div class="accordion-body-container">
+                            <h4 class="title fw-bold">
+                                Mission
+                            </h4>
+                            <p>
+                                To support young athletesliving in Chicago'snorthside neighborhoods, who have an interest in 
+                                learning and playing hockey, with opportunities to learn and practice skills related to 
+                                the game of hockey, specifically those skills around teamcooperation and good sportsmanship
+                            </p>
+                        </div>
+                        <div class="accordion-body-container">
+                            <h4 class="title fw-bold">
+                                Vision 
+                            </h4>
+                            <p>
+                                The Mighty Ducks Hockey League aspires to develop strong, 
+                                well·rounded, and mindful athletes through the building of character, self-discipline, and leadership.
+                            </p>
+                        </div>
+                        <div class="accordion-body-container">
+                            <h4 class="title fw-bold">
+                                General information
+                            </h4>
+                            <p>
+                                The Mighty Ducks Hockey League was established in 1996 to provide athletesresiding in Chicago'snorthside neighborhoods 
+                                an environment in which to learn and play hockey. To be a member of MDHL, you must be between the ages of 4 -12 and reside 
+                                in a Chicago northside neighborhood. 
+                                MDHL is ran by a small fullt·ime staff, and relies on the generous volunteer time of parents and previous league members.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item accordion-home mx-auto col-10 py-2 my-4">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
+                        <h3 class="ms-4 fw-bold">Rules and Policies</h3>
+                    </button>
+                </h2>
+                <div id="collapseThree2" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        <div class="divRules">
+                            <div class="accordion-body-container">
+                                <h4 class="title fw-bold">
+                                    Sportsmanship
+                                </h4>
+                                <p>
+                                    The common interest that members of the Association share is to inspire
+                                    youth to practice the ideals of sportsmanship and fair play. Any player, coach,
+                                    team, parent, spectator, administrator or referee whose behavior detracts from
+                                    this purpose is subject to disciplinary action regardless of technical hockey
+                                    background, expertise, accomplishments or standing.
+                                </p>
+                            </div>       
+                
+                            <div class="accordion-body-container">
+                                <h4 class="title fw-bold">
+                                    IHF Field Regulations
+                                </h4>
+                                    <h4 class="text-danger opacity-50">Dimensions</h4>
+                                    <p>
+                                        IHF Law 1 provides for flexible external field dimensions within
+                                        a given maximum and minimum width and length. These dimensions should be
+                                        adhered to for all fields used by teams under 12 and older.
+                                    </p>
+
+                                    <h4 class="text-danger opacity-50">Competition Fields</h4>
+                                    <p>
+                                        Fields used within the competition program must be
+                                        a minimum of 100 x 60 yards.Leagues, districts or associations participating in
+                                        the state competition program that are unable to provide a field that meets these
+                                        minimum requirements must advise the State Competition Board which will
+                                        assign its Fields Committee to inspect the field and recommend to the Board
+                                        whether or not a waiver of the minimum dimensions should be granted. Teams
+                                        from leagues, districts or associations that are unable to provide an acceptable
+                                        field may be required to play all their games away
+                                    </p>
+
+                                    <h4 class="text-danger opacity-50">Fields used by young age groups</h4>
+                                    <p>
+                                        U-6 play on a field approximately 20 X 40 yards with no penalty areas. Fields
+                                        for older age groups should be progressively larger.
+                                    </p>    
+                                    <p>
+                                        U-8 plays on a field 40-50 yards in length and 20-30 yards width.
+                                    </p>
+                                    <p>
+                                        U-10 play on a field 70-80 yards in length and 40-50 yards in width
+                                    </p>
+                                    <p>
+                                        In addition, fields used by young age groups may have their internal
+                                        dimensions and size of goal similarly modified.
+                                    </p>                                           
+                            </div>       
+                        </div>
                     </div>
                 </div>
             </div>
             
-            
+            <div class="accordion-item accordion-home mx-auto col-10 py-2">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                        <h3 class="ms-4 fw-bold">Contact</h3>
+                    </button>
+                </h2>
+                <div id="collapseThree3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="accordion-body-container">
+                            <p> For contacting us, Please email us at: </p>
+                            <a href="mailto:mdhl@chihockey.org">mdhl@chihockey.org</a>
+                            <p class="mt-3"> We will reply your email as soon as we can.</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             
             

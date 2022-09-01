@@ -6,6 +6,10 @@
 main {
     position: relative;
 }
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
 
 /*------------------------------  Header -----------------------------*/
 .header{
