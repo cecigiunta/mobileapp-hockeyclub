@@ -1,11 +1,10 @@
 .body-login{
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(29,121,9,1) 100%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(99, 7, 24) 100%, rgba(0,0,0,1) 100%);
 }
 .logo-login{
     max-width: 150px;
 }
-
 
 .input-login{
     background-color: rgba(2, 0, 8, 0);
@@ -15,18 +14,17 @@
     border-bottom: white solid;
 }
 
-
-
 .btn{
     width: 200px;
 }
 .btn-noborder{
     border: none;
     background-color: rgba(0, 0, 0, 0);
+    border-radius: 20px !important;
 }
 .btn-noborder a{
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 .animate__fadeInUp{
     animation-duration: 2s;

@@ -1,31 +1,35 @@
 .body{
-    /* background-color: rgba(3, 0, 33, 0.956); */
-    background-image: url("../assets/bg2.jpg");
-    background-size: inherit;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(22, 22, 22) 0%, rgb(19, 32, 96) 100%, rgb(0, 0, 0) 100%);
 }
 main {
     position: relative;
+    margin-bottom: 60px;
 }
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 500;
+    box-sizing: border-box;
 }
 
 /*------------------------------  Header -----------------------------*/
 .header{
-    background-color: rgba(0, 0, 0, 0.524);
-    padding: 10px;
+    background-color: rgba(211, 45, 12, 0.605);
+    padding: 5px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 .header-logo{
-    width: 90px;
-    height: 80px;
+    width: 70px;
+    height: 60px;
 }
 .header-logout{
     max-height: 40px;
 }
-.img-header{
-    max-height: 40px;
-    max-width: 40px;
+.title-header{
+    background-color: rgba(211, 45, 12, 0.605);
+    border: none;
 }
 
 .red-color{
@@ -37,7 +41,7 @@ main {
 /*------------------------------  Footer -----------------------------*/
 .footer{
     background-color: rgba(0, 0, 0, 0.642);
-    height: 70px;
+    height: 60px;
     padding: 20px;
     width: 100%;
     position: fixed;
@@ -48,3 +52,7 @@ main {
     color: white;
 }
 
+/* Animation  */
+.animate__fadeInRight{
+    animation-duration: 1s;
+}

@@ -1,0 +1,90 @@
+.form {
+    background-color: rgba(255, 255, 255, 0.786);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+/* FIELDSET */
+.fieldsetContainer1{
+    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.labelForm{
+    display: inline-block;
+    text-align: center;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.inputForm {
+    text-align: center;
+    display: inline-block;
+    height: 30px;
+    margin-bottom: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.185);
+    border-radius: 20px;
+    text-transform: capitalize;
+    width: 90%;
+}
+
+
+/* CLOSEST SCHOOL & UNIFORM SELECTS */
+section{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.headerUniform {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.sectionSelect{
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.selectForm{
+    text-align: center;
+    margin: auto;
+    display: inline-block;
+    width: 90%;
+    height: 30px;
+    border: solid 1px rgba(0, 0, 0, 0.185);
+    border-radius: 20px;
+}
+
+/* PERMISSION */
+.btn-accordion{
+    background-color: rgba(253, 253, 253, 0.521);
+    border: none !important;
+    border-radius: 20px;
+    width: 90%;
+}
+
+/* BUTTON */
+.form .submit {
+    padding: 10px 40px;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    background: rgb(48, 162, 92);
+    border-radius: 20px;
+}
+
+/* VALIDATE */
+.valid:valid {
+    background-color: rgba(216, 255, 219, 0.371);
+    border: 1px solid rgb(114, 208, 114); 
+}
+.valid:invalid{
+    background-color: rgba(255, 216, 219, 0.371);
+    border: 1px solid rgb(255, 114, 114);
+}

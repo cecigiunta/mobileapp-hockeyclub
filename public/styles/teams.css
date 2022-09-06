@@ -9,8 +9,9 @@
 }
 
 .teams-div{
-    background-color: rgba(255, 255, 255, 0.736);
-    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.508);
+    padding: 20px;
     border-radius: 20px;
+    border: 2px solid white;
 }
 

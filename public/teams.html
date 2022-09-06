@@ -27,29 +27,35 @@
         <main>
             <h1 class="text-white my-4 text-center">Teams</h1>
             {{filtrar}}
+            <h6 class="text-info text-center">
+                Want to join a Team? 
+                <a href="./registration_form.html" class="text-info fw-bold">Tap here!</a>
+            </h6>
             <form  class="my-4 mx-auto col-10 d-flex">
                 <input v-model="search" type="text" class="input-search col-8 text-white">
                 <span class="search-btn text-white lead ms-1">Search</span>
             </form>
             
+            <div v-if="results.length === 0" class="col-3 mx-auto my-5 py-2">
+                <div class="text-warning">
+                    <div class="spinner-border ms-4" role="status"></div>
+                </div>
+                <span class="fs-1 text-warning">Loading Teams...</span>
+            </div>
+
+            <div v-if="results.length > 0">
+
             <div v-for="team in filtered" class="d-flex col-12 mx-auto mb-3">
-                <div class="teams-div col-5 mx-3">
-                    <div class="">
-                        <h3>{{team.team1}}</h3>
-                        <h5>{{team.location}}</h5>
+                <div class="teams-div col-10 mx-auto animate__fadeInRight">
+                    <div>
+                        <h1 class="text-center text-white">{{team.team1}}</h1>
+                        <h5 class="text-center text-white">{{team.location}}</h5>
                     </div>
                 </div>
             </div>
+            </div>
         </div>
-
-
-            <!-- PROXIMO JUEGO - DONDE QUEDA LA CANCHA -->
         </main>
-
-
-
-
-
 
         <footer class="footer d-flex flex-row gap-3 justify-content-evenly align-items-center">
             <a href="./index.html">
@@ -70,7 +76,8 @@
     <script src="https://kit.fontawesome.com/6c7cfa0dfc.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3"></script>
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+    <script src="./vue.js"></script>
     <script src="./app.js"></script>
 </body>
 </html>

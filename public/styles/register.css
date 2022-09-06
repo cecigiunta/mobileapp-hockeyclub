@@ -1,6 +1,6 @@
 .body-login{
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(29,121,9,1) 100%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(76, 1, 1) 100%, rgba(0,0,0,1) 100%);
 }
 .logo-login{
     max-width: 150px;
@@ -18,14 +18,13 @@
     border-bottom: white solid;
 }
 
-
-
 .btn{
     width: 200px;
 }
 .btn-noborder{
     border: none;
     background-color: rgba(0, 0, 0, 0);
+    border-radius: 20px !important;
 }
 .btn-noborder a{
     text-decoration: none;

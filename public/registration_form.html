@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/calendar.css">
+    <link rel="stylesheet" href="./styles/registration_form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>MDHL | Calendar</title>
+    <title>MDHL | Registration Form</title>
 </head>
 <body class="body">
     <div id="app">
@@ -24,35 +24,128 @@
                 </div>
             </div>
         </header>
-        <main>
-            <h1 class="text-white text-center py-3">See our fall schedule</h1>
-            
-            <div class="container-calendar col-11 p-2 mb-3 d-flex flex-column gap-3 mx-auto">
-                <h3 class="text-white pb-3 text-center">September events</h3>
-                <div v-for="game in september_games" class="container-calendar-game animate__fadeInRight">
-                    <h4 class="text-center header-calendar text-white">September, {{game.day_date}}</h4>
-                    <div class="d-flex mx-3 my-2">
-                        <h2 class="text-center fs-1">{{game.team1}} vs. {{game.team2}}</h2>
-                    </div>
-                    <div class="d-flex justify-content-between mx-3 my-2">
-                        <p>{{game.location}}</p>
-                        <p class="me-3 fw-bold">{{game.time}}</p>
-                    </div>
-                </div>  
-            </div>
+        <main class="mb-5">
+            <h1 class="text-white my-4 text-center">Registration Form</h1>
 
-            <div class="container-calendar col-11 p-2 mb-3 d-flex flex-column gap-3 mx-auto">
-                <h3 class="text-white pb-3 text-center">October events</h3>
-                <div v-for="game in october_games" class="container-calendar-game animate__fadeInRight">
-                    <h4 class="text-center header-calendar bg-warning text-white opacity-75">October, {{game.day_date}}</h4>
-                    <div class="d-flex mx-3 my-2">
-                        <h2 class="text-center fs-1">{{game.team1}} vs. {{game.team2}}</h2>
+            <div class="col-11 mx-auto mb-3">
+                <form class="form" action="./show_data.html" method="GET">
+
+                    <fieldset class="fieldsetContainer1">
+                            <h3 class="text-center my-3">Personal Information</h3>   
+                        <label for="first_name" class="labelForm">First Name: </label>
+                        <input name="first_name" id="first_name" class="inputForm valid" type="text" required>
+                        
+                        <label for="last_name" class="labelForm">Last Name: </label>
+                        <input name="last_name" id="last_name" class="inputForm valid" type="text" required>
+                            
+                        <label for="street_adress" class="labelForm">Street Adress: </label>
+                        <input name="street_adress" id="street_adress" class="inputForm valid" type="text" required>
+                        
+                        <label for="city" class="labelForm">City: </label>
+                        <input name="city" id="city" class="inputForm valid" type="text" required>
+                        
+                        <label for="zip_code" class="labelForm">Zip Code: </label>
+                        <input name="zip_code" id="zip_code" class="inputForm valid" type="number" required>
+                        
+                        <label for="birth_date" class="labelForm">Birth Date: </label>
+                        <input name="birth_date" id="birth_date" class="inputForm valid" type="date" required>
+                        
+                    </fieldset>
+
+                    <h6 class="my-3">Gender</h6>                
+                    <div class="btn-group mb-4" role="group" aria-label="Basic checkbox toggle button group">
+                        <input type="radio" id="gender_f" name="gender" class="checkbox btn-check"  value="Female" />
+                        <label class="btn btn-outline-dark" for="gender_f">Female </label>
+
+                        <input type="radio" id="gender_m" name="gender" class="checkbox btn-check" value="Male" />
+                        <label class="btn btn-outline-dark" for="gender_m"> Male </label>
                     </div>
-                    <div class="d-flex justify-content-between mx-3 my-2">
-                        <p>{{game.location}}</p>
-                        <p class="me-3 fw-bold">{{game.time}}</p>
+
+                    <h5 class="text-center">Grade</h5>
+                    <select class="selectForm valid mb-4" name="grade" id="grade" required>
+                        <option value="" >Select one</option>
+                        <option value="Pre-School">Pre-School</option>
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                        <option value="5th">5th</option>
+                    </select>
+    
+                    <h5 class="text-center">Closest School</h5>
+                    <select class="selectForm valid mb-4" name="closest_school" id="closest_school" required>
+                        <option value="" >Select one</option>
+                        <option value="AJ Katzenmaier">AJ Katzenmaier</option>
+                        <option value="Greenbay">Greenbay</option>
+                        <option value="Howard A Yeager">Howard A Yeager</option>
+                        <option value="Marjorie P Hart">Marjorie P Hart</option>
+                        <option value="North Elementary">North Elementary</option>
+                        <option value="South Elementary">South Elementary</option>
+                    </select>
+
+
+                    <h5 class="my-3">Position(s) that normally play</h5>                
+                    <div class="btn-group mb-4 d-flex flex-column gap-3 position" role="group" aria-label="Basic checkbox toggle button group">
+                        <input type="checkbox" id="forward" name="position" class="checkbox btn-check"  value="Forward" />
+                        <label class="btn btn-outline-dark" for="forward">Forward </label>
+
+                        <input type="checkbox" id="defense" name="position" class="checkbox btn-check" value="Defense" />
+                        <label class="btn btn-outline-dark" for="defense"> Defense </label>
+                        
+                        <input type="checkbox" id="midfield" name="position" class="checkbox btn-check" value="Midfield" />
+                        <label class="btn btn-outline-dark" for="midfield"> Midfield </label>
+
+                        <input type="checkbox" id="goalkeeper" name="position" class="checkbox btn-check" value="Goalkeeper" />
+                        <label class="btn btn-outline-dark" for="goalkeeper"> Goalkeeper </label>
                     </div>
-                </div>  
+    
+                    <h5 class="text-center">Uniform Size</h5>
+                    <select class="selectForm mb-4 valid" name="uniform_size" id="uniform_size" required >
+                        <option value="" >Select one</option>
+                        <option value="Youth Small">Youth Small</option>
+                        <option value="Youth Medium">Youth Medium</option>
+                        <option value="Youth Large">Youth Large</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Extra-Large">Extra-Large</option>
+                    </select>
+
+                    <div class="accordion-item mx-auto col-10 py-2">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button btn-accordion collapsed mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                                <h3>Permission to play</h3>
+                            </button>
+                        </h2>
+                        <div id="collapseThree3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="accordion-body-container">
+                                    <p>
+                                        I, the parent or guardian of the minor registrant, agree that the registrant and 
+                                        I will be abide by all the rules of the Mighty Ducks Hockey League (MDHL). 
+                                        In recognizing the possibility of physical injury associated with hockey and in consideration 
+                                        for the "League" accepting the registrant for its hockey programs and activities, 
+                                        I hereby release, discharge, and/or otherwise indemnify MDHL, their employees and 
+                                        associated personnel and volunteers, including the facilities used for practices and games, 
+                                        against any claim by or on behalf of the registrant as a result of the registrant's participation
+                                        in the programand/orbeing transported to or from MDHL sponsored activities, 
+                                        which transportation.
+                                        By entering your name below, I hereby agree and authorize the above. 
+                                        In addition, by signing below, I also ackowledge that I have read the cancelattion policy 
+                                        and agree to its terms.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <label for="signature">Parent/Guardian Signature </label>
+                    <input class="inputForm valid my-2" name="signature" id="signature" type="text" required>
+                    
+                    <label for="today_date">Date: </label>
+                    <input class="inputForm valid my-2" name="today_date" id="today_date" type="date" required >
+                    <button class="submit mt-3 mb-5" type="submit">Submit</button>
+                </form>
             </div>
         </main>
 
@@ -66,7 +159,7 @@
             <a href="./teams.html">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADhXXHAAAAABmJLR0QA/wD/AP+gvaeTAAAENElEQVRYhe2YXYhWVRSGnz3jmBohaOVPZZOGCioZSUJaYEgXFv0ZQVToVYQXRVGRoBRC0YX0Y5Qp5I0pRERQFAReRCWhNURYFhkiacoYjv2p48/4dHHW5Mfn2We+b2ZMolk3h/O9737Xu/ess9feA0MxFP+tSIMppk4GbgUmAeOBb1JKqwczx4BDXahu9+zoiQmc/1Bb1LXqafWE+r76oHq9+kAYPqpuUW8532ZfDkPb1Ol1WFKfVj9U/wzeioHka7hm1eHAtcBE4Cgg8DGwHViQUjpaMbYd+AiYDswDfgGuAUYD+1JKn/R3AvWJLlZfV7tqavG0ujtqcnrfKqDOjnEn6+r6lDplMIzOUTtD9ID6pvpcJFXd0qTe1hj3jrpCXR3vJ6Jcru6v0fFh8Lj6iNpag62MJKua1Hwxxs2M96Q+pn4QC/CzOrY/ZntnvawEuzGw5U1qLo9x80uwRwN7ITe+pUL7dmAvsK4EOxzPS5oxS/FBARwpwV4DOoF7mtSEKPx3M1iLekj9rknNr9Qj6ogM3lsOI8vwqpXtpnpr6wKmxpbWiNHLgeuAfcDxDO1Y5LygEc1a8c/VvepZhtWZUV9vNKn5doy7KoP/oO4vywnVK9sDXAZcWsHpbtwqAG0UzeSPekC9EpgG7Ekp2ZSq2q1uz2CtFk2hU725Qb07qzSDs03NlUil+E6Lnl66Uatz4yPb24BWm/qXuk+9IcOZEvl29sfs0ugsX1Zw1kUNVrZcdX7wnq3gfGHRipc2bTYENkWS9gy+KPC1fei8Fby5GXxCbFnv9ctoiCyOJOszeKvaYXGguSvDuTuMfFaRZ03kWTIQs62euQHkVnd24Bsz+MbAZ2bwETGZ79W2Kj9VWxcppR6gI157MrSD8TyRwU/G81AG76FoBLtSSiczHKAPsxEXxfNYBu/tNrlEvZMobbFh8BQwpi8jlWbV+4DFFC3ycIZ2Wzxz+OE6Xll0APPUZ9TGW606Sn1I3RG11qUuKOGNU1+Nj+uQekVGb1LgPcEfV8KZpv4U+TrVVeqEKpMjLS54v8agI+p6dWIdb7662eJQrsVJalYfCzArdg1j3GbrzrTqhbGyB4LXHbvEmHqxyerXQTqgPlVLsjjR31GTUIvWuEQdVmW0RmNY8LfVaHSEbqrhDVfvV78Nzu5/FkMdHT+ovqSOqksyxTN3p+PqBnVOIwYrjM8Jnd6/zlbr/hlicWZ+0uJcvV8dSyy9llwn1BnqwcA3mdlrB2C6PUrCyDOjhPNE4M8ndQcwA7gX+K2Gl4A1wFRgWUqp7HozWKYfprjW7AJW1sEjgQ3Aj6i/Wx2vnCuTdYbX9OGjK6mLgLKv+XGKC+HklNKef8FsO7Ab2A+UXfF3lF4f1BaK03wb8Ok5c3h23ETR8UanlE7Xg1Xbzi5gNrDwHBnLRfOH76EYiqH4n8Xfv+kDHL0YKRYAAAAASUVORK5CYII=">
             </a>
-            <a href="#">
+            <a href="./calendar.html">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAACpUlEQVRYhe2YMUhVURzGfye0NDDICCLKwMHBsAhpSKQczDEIh3hLuJs2tBlNTQkNQUstCoINDU1NumhDUzpEi1CSRbQ1lQ3Cr+Gdh9f77n1e7fkM8gO53/nOd+75uOd/zrteOMD/DvWCuqguqD2N8lUQCgRcBNZjsyWEcK0RvgoObRcQOAu8iH8dDfQB0JQW1KPAqRxPk9pZ4F679X0PIfzKDajeAqaBlpybnwE+5vTVw/dbvR1CeJkZEJgAngNPEtpCgn8F8mqmHr67wH0gN+AxYDmE8KkiqBuJ/o1kXxL18KnLwI2kv6oGM7AGlCL/3EAfUGwX36Fck0eAsQb6qqGuqiM7GlRHqCPqai3DqroUeZv6Rm2L7bnKkaDOqH2RT6rDkY+r45EPq5OR96kzkXeqczlzLKUDZi3xpXg9AfTHK8AgmwdrP9AV+WWgJzG2Mr4n9hG9/ZF3xHtlzVEZm434BGcjb1Yfqs2xPaG2Rz6aeJoltTfyIXUo8l61FHmnOhp5uzqRM8dskSX+p2pw22NGvcnmctYbKyGEV7UMRc7Bx5TfPr4ltONALzCf8p6P1w8pfRB4B/xIaKeBVqBmwC3IWuIcbUA1Y/yUOpWhqw6ktKrlzNKKHNT7ioOAf4simwRgUn2QaLcCqOl3vpNRv5pxj1l1PdFuA37WK+Br4G2i3QXcAx6lfJXNNJ3SnwGzwEpCuwIMsBMc7OJd4J8PWLQGu9XBRPsiQEqD8q9Dlg7Qqybn6y6csoKcelt077CYmmvnLwshhKwjo2HIDah21OqvMzZCCGtZHZkBYg3N7Wmk6jmvZ+mZAUMI8+q5vP49wEYIYS1d/9QKkPfIG410wDWgpB7ejzDAMKl/5rd8H7T8QfEp5Y86+4EvwFgI4f0+zX+AxuMP1otp5WUoLqQAAAAASUVORK5CYII=">
             </a>
         </footer>
@@ -75,8 +168,8 @@
     <script src="https://kit.fontawesome.com/6c7cfa0dfc.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="./vue.js"></script>
     <!-- <script src="https://unpkg.com/vue@3"></script> -->
+    <script src="./vue.js"></script>
     <script src="./app.js"></script>
 </body>
 </html>

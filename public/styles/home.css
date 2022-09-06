@@ -2,9 +2,10 @@
     max-height: 200px;
 }
 .accordion-home{
-    background-color: rgba(251, 169, 209, 0.823) !important;
+    background-color: rgba(223, 223, 223, 0.352) !important;
     border-radius: 20px !important;
     box-shadow: 1px 1px 5px black;
+    border: 3px solid white !important;
 }
 
 /* About us & RulesPolicy   */

@@ -5,8 +5,9 @@
         "team2": "U2",
         "month_date": 9,
         "day_date": 10,
-        "time": "9:30",
-        "location": "AJ Kat"
+        "time": "9:30 a.m",
+        "location": "AJ Katzenmaier",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.6572038332524!2d-87.63125808459743!3d41.900228779220456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd34e07f69da7%3A0x15e198c063fc787c!2sAJ%20Katzenmaier%20Elementary!5e0!3m2!1ses-419!2sar!4v1654568785582!5m2!1ses-419!2sar"
     },
     {
         "_id": "002",
@@ -14,8 +15,9 @@
         "team2": "U4",
         "month_date": 9,
         "day_date": 27,
-        "time": "9:00",
-        "location": "Moron"
+        "time": "1:00 p.m",
+        "location": "Greenbay",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.022981686594!2d-87.64002218459702!3d41.91386467921937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3407260c45b%3A0xb351205fae50c6f3!2sGreenbay%20Elementary!5e0!3m2!1ses-419!2sar!4v1654569332033!5m2!1ses-419!2sar"
     },
     {
         "_id": "003",
@@ -23,8 +25,9 @@
         "team2": "U6",
         "month_date": 10,
         "day_date": 1,
-        "time": "19:30",
-        "location": "Loma Hermosa"
+        "time": "19:30 p.m",
+        "location": "Howard A Yeager",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.5852694079276!2d-87.66512358463311!3d41.92327347056509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd2e37f852467%3A0xb6cb22b2f0358874!2sHoward%20A%20Yeager%20Elementary!5e0!3m2!1ses!2sar!4v1654569556874!5m2!1ses!2sar"
     },
     {
         "_id": "004",
@@ -32,79 +35,88 @@
         "team2": "U5",
         "month_date": 10,
         "day_date": 10,
-        "time": "9:30",
-        "location": "Madrid"
+        "time": "2:00 p.m",
+        "location": "Marjorie P Hart",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11798.881242377356!2d-87.84569!3d42.3271639!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9a4d5f9aafd42e02!2sMarjorie%20P%20Hart%20School!5e0!3m2!1ses!2sar!4v1654569589942!5m2!1ses!2sar"
     },
     {
         "_id": "005",
         "team1": "U8",
         "team2": "U3",
         "month_date": 10,
-        "day_date": 27,
-        "time": "9:30",
-        "location": "Loma Hermosa"
+        "day_date": 20,
+        "time": "11:30 a.m",
+        "location": "North",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.3353630140205!2d-87.64831158463355!3d41.90714887157485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd33af14860a5%3A0x5736e62f19086c62!2sNorth%20Elementary!5e0!3m2!1ses!2sar!4v1654569811150!5m2!1ses!2sar"
     },
     {
         "_id": "006",
         "team1": "U1",
         "team2": "U5",
         "month_date": 10,
-        "day_date": 27,
-        "time": "13:30",
-        "location": "Berazategui"
+        "day_date": 22,
+        "time": "1:30 p.m",
+        "location": "AJ Katzenmaier",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.6572038332524!2d-87.63125808459743!3d41.900228779220456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd34e07f69da7%3A0x15e198c063fc787c!2sAJ%20Katzenmaier%20Elementary!5e0!3m2!1ses-419!2sar!4v1654568785582!5m2!1ses-419!2sar"
     },
     {
         "_id": "007",
-        "team1": "U8",
-        "team2": "U3",
+        "team1": "U5",
+        "team2": "U2",
         "month_date": 10,
         "day_date": 27,
-        "time": "9:30",
-        "location": "Loma Hermosa"
+        "time": "9:30 a.m",
+        "location": "South",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2964.070449739337!2d-87.8882334846304!3d42.02022106448729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fb7ad3c474b63%3A0x93bdf85af2a839ed!2sSOUTH%20ELEMENTARY%20SCHOOL!5e0!3m2!1ses!2sar!4v1654570284963!5m2!1ses!2sar"
     },
     {
         "_id": "008",
-        "team1": "U8",
-        "team2": "U3",
+        "team1": "U6",
+        "team2": "U8",
         "month_date": 10,
-        "day_date": 27,
-        "time": "9:30",
-        "location": "Loma Hermosa"
+        "day_date": 30,
+        "time": "1:00 p.m",
+        "location": "Greenbay",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.022981686594!2d-87.64002218459702!3d41.91386467921937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3407260c45b%3A0xb351205fae50c6f3!2sGreenbay%20Elementary!5e0!3m2!1ses-419!2sar!4v1654569332033!5m2!1ses-419!2sar"
     },
     {
         "_id": "009",
-        "team1": "U8",
+        "team1": "U2",
         "team2": "U3",
-        "month_date": 10,
-        "day_date": 27,
-        "time": "9:30",
-        "location": "Loma Hermosa"
+        "month_date": 9,
+        "day_date": 18,
+        "time": "10:30 a.m",
+        "location": "Howard A Yeager",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.5852694079276!2d-87.66512358463311!3d41.92327347056509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd2e37f852467%3A0xb6cb22b2f0358874!2sHoward%20A%20Yeager%20Elementary!5e0!3m2!1ses!2sar!4v1654569556874!5m2!1ses!2sar"
     },
     {
         "_id": "010",
         "team1": "U8",
         "team2": "U3",
-        "month_date": 10,
-        "day_date": 27,
-        "time": "9:30",
-        "location": "Loma Hermosa"
+        "month_date": 9,
+        "day_date": 15,
+        "time": "11:30 a.m",
+        "location": "Marjorie P Hart",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11798.881242377356!2d-87.84569!3d42.3271639!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9a4d5f9aafd42e02!2sMarjorie%20P%20Hart%20School!5e0!3m2!1ses!2sar!4v1654569589942!5m2!1ses!2sar"
     },
     {
         "_id": "011",
-        "team1": "U8",
-        "team2": "U3",
-        "month_date": 10,
-        "day_date": 27,
-        "time": "9:30",
-        "location": "Loma Hermosa"
+        "team1": "U1",
+        "team2": "U4",
+        "month_date": 9,
+        "day_date": 21,
+        "time": "2:00 p.m",
+        "location": "North",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.3353630140205!2d-87.64831158463355!3d41.90714887157485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd33af14860a5%3A0x5736e62f19086c62!2sNorth%20Elementary!5e0!3m2!1ses!2sar!4v1654569811150!5m2!1ses!2sar"
     },
     {
         "_id": "012",
-        "team1": "U8",
-        "team2": "U3",
+        "team1": "U5",
+        "team2": "U6",
         "month_date": 10,
-        "day_date": 27,
-        "time": "9:30",
-        "location": "Loma Hermosa"
+        "day_date": 2,
+        "time": "5:00 p.m",
+        "location": "Greenbay",
+        "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.022981686594!2d-87.64002218459702!3d41.91386467921937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3407260c45b%3A0xb351205fae50c6f3!2sGreenbay%20Elementary!5e0!3m2!1ses-419!2sar!4v1654569332033!5m2!1ses-419!2sar"
     }
 ]
