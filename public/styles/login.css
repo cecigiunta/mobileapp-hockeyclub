@@ -1,6 +1,7 @@
 .body-login{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(99, 7, 24) 100%, rgba(0,0,0,1) 100%);
+    height: 100vh;
 }
 .logo-login{
     max-width: 150px;
@@ -25,7 +26,4 @@
 .btn-noborder a{
     text-decoration: none;
     color: rgb(255, 255, 255);
-}
-.animate__fadeInUp{
-    animation-duration: 2s;
 }

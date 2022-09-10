@@ -3,7 +3,8 @@ Vue.createApp({
         return {
             url: './api.json',
             search: '',
-            gameId : '', 
+            gameId : '',
+            page: 'Home', 
             results: [],
             filtered: [],
             detalle: [],
@@ -18,6 +19,7 @@ Vue.createApp({
                 this.results = data;
                 this.september_games = this.sortedFunction((this.results.filter(game => game.month_date === 9)), "day_date")
                 this.october_games = this.sortedFunction((this.results.filter(game => game.month_date === 10)), "day_date")
+                
             })
             .catch(err => console.error(err))
             this.detalle = JSON.parse(localStorage.getItem('detalle')) || []
@@ -36,6 +38,7 @@ Vue.createApp({
             })
             return newArr   
         },
+        
     },
     computed: {
         filtrar(){
@@ -45,5 +48,8 @@ Vue.createApp({
                 game.location.toLowerCase().includes(this.search.toLowerCase())
             )
         },
+        changeTitle(){
+            document.title = `MDHL | ${this.page}` 
+        }
         },            
 }).mount('#app')

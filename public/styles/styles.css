@@ -52,7 +52,10 @@ main {
     color: white;
 }
 
-/* Animation  */
+/* Animations  */
 .animate__fadeInRight{
     animation-duration: 1s;
+}
+.animate__fadeInUp{
+    animation-duration: 2s;
 }

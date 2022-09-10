@@ -55,6 +55,9 @@
                             <h3 class="me-4">Location:</h3>
                             <h3 class="text-danger opacity-75">{{game.location}}</h3>
                         </div>
+                        <iframe v-bind:src=game.location_map
+                        width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
             </div>

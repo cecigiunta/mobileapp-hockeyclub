@@ -44,17 +44,15 @@
             </div>
 
             <div v-if="results.length > 0">
-
-            <div v-for="team in filtered" class="d-flex col-12 mx-auto mb-3">
-                <div class="teams-div col-10 mx-auto animate__fadeInRight">
-                    <div>
-                        <h1 class="text-center text-white">{{team.team1}}</h1>
-                        <h5 class="text-center text-white">{{team.location}}</h5>
+                <div v-for="team in filtered" class="d-flex col-12 mx-auto mb-3">
+                    <div class="teams-div col-10 mx-auto animate__fadeInRight">
+                        <div>
+                            <h1 class="text-center text-white">{{team.team1}}</h1>
+                            <h5 class="text-center text-white">{{team.location}}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-        </div>
         </main>
 
         <footer class="footer d-flex flex-row gap-3 justify-content-evenly align-items-center">
