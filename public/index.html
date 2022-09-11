@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="./styles/teams.css">
     <link rel="stylesheet" href="./styles/registration_form.css">
     <link rel="stylesheet" href="./styles/login.css">
-    <link rel="stylesheet" href="./styles/register.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -21,8 +20,8 @@
     <div id="app">
         <template v-if="page === 'Login'">
             <section class="body-login">
-                <div class="d-flex flex-column align-items-center gap-2">
-                    <img class="logo-login mt-5" src="./assets/logo2.png" alt="">
+                <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 mx-auto">
+                    <img class="logo-login mt-5" src="./assets/logo2.png" alt="logo">
                     <h3 class="text-white mt-3">Welcome</h3>
         
                     <form class="d-flex flex-column gap-4 align-items-center my-3 col-11 animate__fadeInUp">
@@ -34,7 +33,7 @@
                         </div>
                     </form>
             
-                    <button @click="page = 'Home'" class="btn btn-outline-light btn-noborder mt-3 mb-5 lead">
+                    <button  type="submit" @click="page = 'Home'" class="btn btn-login-register btn-outline-light btn-noborder mt-3 mb-5 lead">
                         Login
                     </button>
         
@@ -47,10 +46,11 @@
                 </div>          
             </section>
         </template>
+
         <template v-if="page === 'Register'">
             <div class="body-login">
-                <div class="d-flex flex-column align-items-center gap-2">
-                    <img class="logo-login mt-5" src="./assets/logo2.png" alt="">
+                <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 mx-auto">
+                    <img class="logo-login mt-5" src="./assets/logo2.png" alt="logo">
                     <h3 class="text-white mt-3">Register your account</h3>
         
                     <form class="d-flex flex-column gap-4 align-items-center my-3 col-10 animate__fadeInUp">
@@ -68,15 +68,14 @@
                         </div>
                     </form>
             
-                    <button @click="page = 'Login'" class="btn mt-4 mb-5  btn-outline-light btn-noborder">
+                    <button @click="page = 'Login'" class="btn mt-4 mb-5 btn-login-register btn-outline-light btn-noborder">
                         SIGN UP
                     </button>
                 </div>            
             </div>
         </template>
 
-
-        <template v-if="page != 'Login' || page != 'Register'">
+        <template v-if="page != 'Login' && page != 'Register'">
             <header class="header d-flex justify-content-between">
                 <img src="./assets/logo2.png" alt="mylogo" class="header-logo">
                 <div class="d-flex gap-3 mt-3">
@@ -95,174 +94,177 @@
                 {{changeTitle}}     
                 <section v-if="page === 'Home'">
                     <h3 class="title-header text-white text-center py-3 mb-0">Welcome to MDHL</h3>
-                    <div id="carouselExampleCaptions" class="carousel slide mb-5 mt-0" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                                aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="./assets/hockey1.jpg" class="d-block w-100 rounded" alt="hockey image">
+                    <div class="col-12 col-sm-8 mx-auto">
+                        <div id="carouselExampleCaptions" class="carousel slide mb-5 mt-0" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                                    aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
                             </div>
-                            <div class="carousel-item">
-                                <img src="./assets/hockey2.jpg" class="d-block w-100 rounded" alt="hockey image">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./assets/hockey1.jpg" class="d-block w-100 rounded" alt="hockey image">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/hockey2.jpg" class="d-block w-100 rounded" alt="hockey image">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/hockey3.jpg" class="d-block w-100 rounded" alt="hockey image">
+                                </div>
                             </div>
-                            <div class="carousel-item">
-                                <img src="./assets/hockey3.jpg" class="d-block w-100 rounded" alt="hockey image">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-
-                    <div class="accordion-item accordion-home mx-auto col-10 py-2 animate__fadeInRight">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <h2 class="ms-4 py-2 fw-bold text-white">About us</h2>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
                             </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body d-flex flex-column align-items-center px-3">
-                                <div class="accordion-body-container">
-                                    <h4 class="title fw-bold">
-                                        Mission
-                                    </h4>
-                                    <p>
-                                        To support young athletesliving in Chicago'snorthside neighborhoods, who have an interest in 
-                                        learning and playing hockey, with opportunities to learn and practice skills related to 
-                                        the game of hockey, specifically those skills around teamcooperation and good sportsmanship
-                                    </p>
-                                </div>
-                                <div class="accordion-body-container">
-                                    <h4 class="title fw-bold">
-                                        Vision 
-                                    </h4>
-                                    <p>
-                                        The Mighty Ducks Hockey League aspires to develop strong, 
-                                        well·rounded, and mindful athletes through the building of character, self-discipline, and leadership.
-                                    </p>
-                                </div>
-                                <div class="accordion-body-container">
-                                    <h4 class="title fw-bold">
-                                        General information
-                                    </h4>
-                                    <p>
-                                        The Mighty Ducks Hockey League was established in 1996 to provide athletesresiding in Chicago'snorthside neighborhoods 
-                                        an environment in which to learn and play hockey. To be a member of MDHL, you must be between the ages of 4 -12 and reside 
-                                        in a Chicago northside neighborhood. 
-                                        MDHL is ran by a small fullt·ime staff, and relies on the generous volunteer time of parents and previous league members.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item accordion-home mx-auto col-10 py-2 my-4 animate__fadeInRight">
-                        <h2 class="accordion-header py-2" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
-                                <h3 class="ms-4 fw-bold text-white">Rules and Policies</h3>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
                             </button>
-                        </h2>
-                        <div id="collapseThree2" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="divRules">
+                        </div>
+    
+                        <div class="accordion-item accordion-home mx-auto col-10 py-2 animate__fadeInRight">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <h2 class="ms-4 py-2 fw-bold text-white">About us</h2>
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body d-flex flex-column align-items-center px-3">
                                     <div class="accordion-body-container">
                                         <h4 class="title fw-bold">
-                                            Sportsmanship
+                                            Mission
                                         </h4>
                                         <p>
-                                            The common interest that members of the Association share is to inspire
-                                            youth to practice the ideals of sportsmanship and fair play. Any player, coach,
-                                            team, parent, spectator, administrator or referee whose behavior detracts from
-                                            this purpose is subject to disciplinary action regardless of technical hockey
-                                            background, expertise, accomplishments or standing.
+                                            To support young athletesliving in Chicago'snorthside neighborhoods, who have an interest in 
+                                            learning and playing hockey, with opportunities to learn and practice skills related to 
+                                            the game of hockey, specifically those skills around teamcooperation and good sportsmanship
                                         </p>
-                                    </div>       
-                        
+                                    </div>
                                     <div class="accordion-body-container">
                                         <h4 class="title fw-bold">
-                                            IHF Field Regulations
+                                            Vision 
                                         </h4>
-                                            <h4 class="text-danger opacity-50">Dimensions</h4>
+                                        <p>
+                                            The Mighty Ducks Hockey League aspires to develop strong, 
+                                            well·rounded, and mindful athletes through the building of character, self-discipline, and leadership.
+                                        </p>
+                                    </div>
+                                    <div class="accordion-body-container">
+                                        <h4 class="title fw-bold">
+                                            General information
+                                        </h4>
+                                        <p>
+                                            The Mighty Ducks Hockey League was established in 1996 to provide athletesresiding in Chicago'snorthside neighborhoods 
+                                            an environment in which to learn and play hockey. To be a member of MDHL, you must be between the ages of 4 -12 and reside 
+                                            in a Chicago northside neighborhood. 
+                                            MDHL is ran by a small fullt·ime staff, and relies on the generous volunteer time of parents and previous league members.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="accordion-item accordion-home mx-auto col-10 py-2 my-4 animate__fadeInRight">
+                            <h2 class="accordion-header py-2" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
+                                    <h3 class="ms-4 fw-bold text-white">Rules and Policies</h3>
+                                </button>
+                            </h2>
+                            <div id="collapseThree2" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="divRules">
+                                        <div class="accordion-body-container">
+                                            <h4 class="title fw-bold">
+                                                Sportsmanship
+                                            </h4>
                                             <p>
-                                                IHF Law 1 provides for flexible external field dimensions within
-                                                a given maximum and minimum width and length. These dimensions should be
-                                                adhered to for all fields used by teams under 12 and older.
+                                                The common interest that members of the Association share is to inspire
+                                                youth to practice the ideals of sportsmanship and fair play. Any player, coach,
+                                                team, parent, spectator, administrator or referee whose behavior detracts from
+                                                this purpose is subject to disciplinary action regardless of technical hockey
+                                                background, expertise, accomplishments or standing.
                                             </p>
-
-                                            <h4 class="text-danger opacity-50">Competition Fields</h4>
-                                            <p>
-                                                Fields used within the competition program must be
-                                                a minimum of 100 x 60 yards.Leagues, districts or associations participating in
-                                                the state competition program that are unable to provide a field that meets these
-                                                minimum requirements must advise the State Competition Board which will
-                                                assign its Fields Committee to inspect the field and recommend to the Board
-                                                whether or not a waiver of the minimum dimensions should be granted. Teams
-                                                from leagues, districts or associations that are unable to provide an acceptable
-                                                field may be required to play all their games away
-                                            </p>
-
-                                            <h4 class="text-danger opacity-50">Fields used by young age groups</h4>
-                                            <p>
-                                                U-6 play on a field approximately 20 X 40 yards with no penalty areas. Fields
-                                                for older age groups should be progressively larger.
-                                            </p>    
-                                            <p>
-                                                U-8 plays on a field 40-50 yards in length and 20-30 yards width.
-                                            </p>
-                                            <p>
-                                                U-10 play on a field 70-80 yards in length and 40-50 yards in width
-                                            </p>
-                                            <p>
-                                                In addition, fields used by young age groups may have their internal
-                                                dimensions and size of goal similarly modified.
-                                            </p>                                           
-                                    </div>       
+                                        </div>       
+                            
+                                        <div class="accordion-body-container">
+                                            <h4 class="title fw-bold">
+                                                IHF Field Regulations
+                                            </h4>
+                                                <h4 class="text-danger opacity-50">Dimensions</h4>
+                                                <p>
+                                                    IHF Law 1 provides for flexible external field dimensions within
+                                                    a given maximum and minimum width and length. These dimensions should be
+                                                    adhered to for all fields used by teams under 12 and older.
+                                                </p>
+    
+                                                <h4 class="text-danger opacity-50">Competition Fields</h4>
+                                                <p>
+                                                    Fields used within the competition program must be
+                                                    a minimum of 100 x 60 yards.Leagues, districts or associations participating in
+                                                    the state competition program that are unable to provide a field that meets these
+                                                    minimum requirements must advise the State Competition Board which will
+                                                    assign its Fields Committee to inspect the field and recommend to the Board
+                                                    whether or not a waiver of the minimum dimensions should be granted. Teams
+                                                    from leagues, districts or associations that are unable to provide an acceptable
+                                                    field may be required to play all their games away
+                                                </p>
+    
+                                                <h4 class="text-danger opacity-50">Fields used by young age groups</h4>
+                                                <p>
+                                                    U-6 play on a field approximately 20 X 40 yards with no penalty areas. Fields
+                                                    for older age groups should be progressively larger.
+                                                </p>    
+                                                <p>
+                                                    U-8 plays on a field 40-50 yards in length and 20-30 yards width.
+                                                </p>
+                                                <p>
+                                                    U-10 play on a field 70-80 yards in length and 40-50 yards in width
+                                                </p>
+                                                <p>
+                                                    In addition, fields used by young age groups may have their internal
+                                                    dimensions and size of goal similarly modified.
+                                                </p>                                           
+                                        </div>       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item accordion-home mx-auto col-10 py-2 animate__fadeInRight">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                                    <h3 class="ms-4 fw-bold py-2 text-white">Contact</h3>
+                                </button>
+                            </h2>
+                            <div id="collapseThree3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="accordion-body-container">
+                                        <p> For contacting us, Please email us at: </p>
+                                        <a href="mailto:mdhl@chihockey.org">mdhl@chihockey.org</a>
+                                        <p class="mt-3"> We will reply your email as soon as we can.</p> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="accordion-item accordion-home mx-auto col-10 py-2 animate__fadeInRight">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
-                                <h3 class="ms-4 fw-bold py-2 text-white">Contact</h3>
-                            </button>
-                        </h2>
-                        <div id="collapseThree3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="accordion-body-container">
-                                    <p> For contacting us, Please email us at: </p>
-                                    <a href="mailto:mdhl@chihockey.org">mdhl@chihockey.org</a>
-                                    <p class="mt-3"> We will reply your email as soon as we can.</p> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </section>
 
-                <section v-if="page === 'Games'">
+                <section v-if="page === 'Games'" class="col-12 col-sm-8 mx-auto">
                     <h1 class="text-white title-header mb-4 py-3 text-center">Games</h1>
-                    <form  class="my-4 mx-auto col-10 d-flex">
+                    <form  class="my-4 mx-auto col-11 d-flex justify-content-center">
                         <input v-model="search" type="text" class="input-search col-8 text-white">
                         <button class="search-btn text-white lead ms-1">Search</button>
                     </form>
                 
                     <!-- Spinner -->
                     {{filtrar}}
-                    <div class="container-calendar d-flex flex-column gap-3 mx-auto" v-for="game in filtered">
+                    <div class="container-games d-flex flex-column gap-3 mx-auto" v-for="game in filtered">
                         <div v-if="results.length === 0" class="col-3 mx-auto my-5 py-2">
                             <div class="text-warning">
                                 <div class="spinner-border ms-3" role="status"></div>
@@ -271,7 +273,7 @@
                         </div>
 
                         <div v-if="results.length > 0">
-                        <div class="container-calendar-game animate__fadeInRight">
+                        <div class="container-game animate__fadeInRight">
                                 <div class="d-flex justify-content-between mx-3 my-2">
                                     <h2 class="text-center fs-1">
                                         <span class="text-warning">{{game.team1}}</span>
@@ -279,7 +281,7 @@
                                         <span class="text-info">{{game.team2}}</span>
                                     </h2>
                                     <button class="btn btn-outline-dark" @click="filtrarId(game)">
-                                        <a class="link-games" href="./detail-game.html">See detail</a>
+                                        See detail
                                     </button>
                                 </div>
                                 <div class="d-flex justify-content-between mx-3 my-2">
@@ -291,11 +293,8 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Game Detail'">
-                    <h1>detail</h1>
-                    <a href="./games.html" class="ms-3 goback-link"> 
-                        <h3 class="text-white ms-3 mb-3"> <span class="text-danger"><</span>< Go back</h3>
-                    </a>
+                <section v-if="page === 'Game Detail'" class="col-12 col-sm-8 mx-auto">
+                    <h3 class="text-white m-3" @click="page = 'Games'"> <span class="text-danger ms-3 goback-link"><</span>< Go back</h3>
                     <div v-for="game in detalle">
                         <div v-if="detalle.length === 0" class="col-3 mx-auto my-5 py-2">
                             <div class="text-warning">
@@ -323,21 +322,21 @@
                                     <h3 class="me-4">Location:</h3>
                                     <h3 class="text-danger opacity-75">{{game.location}}</h3>
                                 </div>
-                                <!-- <iframe v-bind:src=`"{{game.location_map}}"` width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                </iframe> -->
+                                <iframe v-bind:src=game.location_map class="m-3 rounded" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section v-if="page === 'Teams'">
+                <section v-if="page === 'Teams'" class="col-12 col-sm-8 mx-auto">
                     <h1 class="text-white my-4 text-center">Teams</h1>
                     {{filtrar}}
                     <h6 class="text-info text-center">
                         Want to join a Team? 
-                        <a href="./registration_form.html" class="text-info fw-bold">Tap here!</a>
+                        <span @click="page = 'Register Form'" class="text-info fw-bold">Tap here!</span>
                     </h6>
-                    <form  class="my-4 mx-auto col-10 d-flex">
+                    <form  class="my-4 mx-auto col-11 d-flex justify-content-center">
                         <input v-model="search" type="text" class="input-search col-8 text-white">
                         <span class="search-btn text-white lead ms-1">Search</span>
                     </form>
@@ -361,7 +360,7 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Calendar'">
+                <section v-if="page === 'Calendar'" class="col-12 col-sm-8 mx-auto">
                     <h1 class="text-white text-center py-3">See our fall schedule</h1>
                 
                     <div class="container-calendar col-11 p-2 mb-3 d-flex flex-column gap-3 mx-auto">
@@ -393,7 +392,8 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'register-form'">
+                <section v-if="page === 'Register Form'" class="col-12 col-sm-8 mx-auto">
+                    <h3 class="text-white m-3" @click="page = 'Teams'"> <span class="text-danger ms-3 goback-link"><</span>< Go back</h3>
                     <h1 class="text-white my-4 text-center">Registration Form</h1>
 
                     <div class="col-11 mx-auto mb-3">
@@ -519,14 +519,14 @@
                 </section>                        
             </main>
             
-            <footer class="footer d-flex flex-row gap-3 justify-content-evenly align-items-center">
+            <footer class="footer gap-3 justify-content-evenly align-items-center">
                     <img @click="page = 'Home'" @click="changeTitle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACHUlEQVRoge3YPWsUURjF8TtiYopoYRQULIREAiJiQLCxsDARwSaFX8FSm4BoIdbaWlgIFmn9BGIRX8BUYimiMaKksBFDipgYfhY7kcl1Z5jdzOyIzB+GXeY+9zzn7N67MzshtLS0tPx3YAT38S097mGkaV+lwFEs+ps3ONa0v0JwGstdzG/zFWeb9tkVzGItY3YT19NjM3N+DbM5GsdxEecxPCjjCW5hK2PyO6YzNdPpuW22cBtJpuZCFPTpIMyPYD5aJu8x2aV2Mh3LMi/d3LgTjW3Vbf4QnkdNX+JwwZyDeBbNeY0juBudV6f5bpv1IYZKzB1Ka7N8xpOBBMBl/Mj0+YWbfehcw0ZsutYAuGHnZl3FlV3ozdi5uesJgGE8jvQ/4mQF2ifwrrYAOIxXkfYCxipp0OkxlmrG5P4glBU+haVI9JEaLjLYiwdRry+Y6ldwRmeN17Mu8/vGrGKmH6GV2tZlcd9urOTV7ynQWk5fP1VrsSe2ey/1PBP702U02uA3cACXMJpXn+QNxKJ/JiRJqTn90muvoiXUT/MJfMhZx9KxiSp7VhoghHA1hDBeMD6e1lRG1QH2VVRTmqoDDJw2QNO0AZqmDdA0PQdQ4wMn9HyNKBvgZ+b9XB0hUs25nJ67Fn9RcH9TFwtlvJW9G50KISyGEAbzvDKEjRDCuSRJ3lamiCmdJ3HrNX7q6zp/7s9UZrylpaWlpeVf5jeYkmg4RsHt+AAAAABJRU5ErkJggg==">
-                    <img @click="page = 'Games'" @click="document.title = page" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAYAAADFniADAAAABmJLR0QA/wD/AP+gvaeTAAAEMElEQVRYhc2YaYhWZRSAnzPjNI24NDVaVhRtJEIqlaaGZpgyRotC9aMoMloIWn5qC1SQGEFQP4JCKghJkwQjRGlxIbS0RIvyR9mgZpK51WTjpI5PP9536pvl++bOpIwHLt/97j3nvM+7nXPeC6ehRH82rjYCU/PfNuCdiNjen0BV6l61RW02yeP9BpShxmWQO9X78/2o/oZ6Tj2mnqUuUX9ufzegjMFg4AZgPHA5MAIYnF+3AL8BTcBmYG1E7O0DVyPwBfAnMB34oBz9KHVRnmfVv9Wd6kZ1hfqhukH9oUTnuPqxemNRGrUh281TJ2Y/s7tTfDBDHFRfUa9Xays4rlZHq8+oTdnxq2qPO1q9J+uPUV9Qj6pDOiuNzeTL1KFFe1xiX6POzw3dV0B/kbpbjTwLa7pTelptUwf2FqiTn23qsh50qtV96kJ1WG53bqlOVf4dmO+f+B9ANwNXZF+VZBzQAKwEZuR2V3UH1S4L1LXq7ZXWUwlIlTpFfQ/4iDK7uZPMBI4Bn5J24B7g21KFUidHgAeA+cBy4Ii6GdgB7CeFgaPAecAwUpi4DhgKHALmAXcUhFoPHCaN1IqIsByUEbFEXQpMyQYTSPHqAjqO6l5SnHoXWA2siohW9dZKNOpw4JrcgauB4aRp7CDtUJKTc0ScANbmq9RhHVAdEYcrtFuVfZWTxqyzEpgFHCdNYxcnANuAOvW2ct4i4kglIPVKYAzwfQWomcCuiPguA26MiEPlHNao63Muek29pILjzrbnqHPV39Vf1HPL6FWrB9Q31Prc1rPd6UaJ0UBgAfAIUAtsJeWmJmBfvtpIi7wBuJC00CcA1aTN8VhE7CkDNYm0wGdl/+8D4yLi6yI9H6E+mXPdfsvLYXWdKduPLOD3RbVVHaS+baqlOoekjiNVwVk9affVkjZGK/BrbysD9RtSWJkB7AY+i4geU9IpE/+rBObkJKx6d38C1aqb1B1qXd4UbWpDfwItzRVIY362Rv2yv4CmqVsy0MP52RBT7fR8JdsuCTSHhltIgbAvQ1xPChUXAT8BjRHRHrWnATV0qgoqQuUhfgs4H/gLOAHUAbt6ADkz2+whJe91pKpheUQcK9FrBA4AX/Xg71+g6TnKblIn5arwTXVHAdvJeUdN7kFvp7q4J38DsnItsJAUvadGREt+XqhDRUQdT5rSpwpBkY44F5Pmv+WkkXSUR4FmUjqqKO1h/irS+ll9KmjU0cC9wOtFOt0OdSL/nvQPHqaD7WLSJnipiE071NZ8X/hAWRCoHlgBXAbcFRHNvYFaDWwHXlYHnSSgm0jH+muB2RFROIpXAeRYMgcYCWxQZ6pn9IHlUvUh9XPgE9J3h4kR0aUOLyw53vxYUjO15uR5sIer2Y6yxfQZoMiRq4t0WdhqDWltjQXO7oWvP0hLYHNENPUF5rSWfwDqw2f2VoVU4AAAAABJRU5ErkJggg==">
+                    <img @click="page = 'Games'" @click="changeTitle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAYAAADFniADAAAABmJLR0QA/wD/AP+gvaeTAAAEMElEQVRYhc2YaYhWZRSAnzPjNI24NDVaVhRtJEIqlaaGZpgyRotC9aMoMloIWn5qC1SQGEFQP4JCKghJkwQjRGlxIbS0RIvyR9mgZpK51WTjpI5PP9536pvl++bOpIwHLt/97j3nvM+7nXPeC6ehRH82rjYCU/PfNuCdiNjen0BV6l61RW02yeP9BpShxmWQO9X78/2o/oZ6Tj2mnqUuUX9ufzegjMFg4AZgPHA5MAIYnF+3AL8BTcBmYG1E7O0DVyPwBfAnMB34oBz9KHVRnmfVv9Wd6kZ1hfqhukH9oUTnuPqxemNRGrUh281TJ2Y/s7tTfDBDHFRfUa9Xays4rlZHq8+oTdnxq2qPO1q9J+uPUV9Qj6pDOiuNzeTL1KFFe1xiX6POzw3dV0B/kbpbjTwLa7pTelptUwf2FqiTn23qsh50qtV96kJ1WG53bqlOVf4dmO+f+B9ANwNXZF+VZBzQAKwEZuR2V3UH1S4L1LXq7ZXWUwlIlTpFfQ/4iDK7uZPMBI4Bn5J24B7g21KFUidHgAeA+cBy4Ii6GdgB7CeFgaPAecAwUpi4DhgKHALmAXcUhFoPHCaN1IqIsByUEbFEXQpMyQYTSPHqAjqO6l5SnHoXWA2siohW9dZKNOpw4JrcgauB4aRp7CDtUJKTc0ScANbmq9RhHVAdEYcrtFuVfZWTxqyzEpgFHCdNYxcnANuAOvW2ct4i4kglIPVKYAzwfQWomcCuiPguA26MiEPlHNao63Muek29pILjzrbnqHPV39Vf1HPL6FWrB9Q31Prc1rPd6UaJ0UBgAfAIUAtsJeWmJmBfvtpIi7wBuJC00CcA1aTN8VhE7CkDNYm0wGdl/+8D4yLi6yI9H6E+mXPdfsvLYXWdKduPLOD3RbVVHaS+baqlOoekjiNVwVk9affVkjZGK/BrbysD9RtSWJkB7AY+i4geU9IpE/+rBObkJKx6d38C1aqb1B1qXd4UbWpDfwItzRVIY362Rv2yv4CmqVsy0MP52RBT7fR8JdsuCTSHhltIgbAvQ1xPChUXAT8BjRHRHrWnATV0qgoqQuUhfgs4H/gLOAHUAbt6ADkz2+whJe91pKpheUQcK9FrBA4AX/Xg71+g6TnKblIn5arwTXVHAdvJeUdN7kFvp7q4J38DsnItsJAUvadGREt+XqhDRUQdT5rSpwpBkY44F5Pmv+WkkXSUR4FmUjqqKO1h/irS+ll9KmjU0cC9wOtFOt0OdSL/nvQPHqaD7WLSJnipiE071NZ8X/hAWRCoHlgBXAbcFRHNvYFaDWwHXlYHnSSgm0jH+muB2RFROIpXAeRYMgcYCWxQZ6pn9IHlUvUh9XPgE9J3h4kR0aUOLyw53vxYUjO15uR5sIer2Y6yxfQZoMiRq4t0WdhqDWltjQXO7oWvP0hLYHNENPUF5rSWfwDqw2f2VoVU4AAAAABJRU5ErkJggg==">
                     <img @click="page = 'Teams'" @click="changeTitle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADhXXHAAAAABmJLR0QA/wD/AP+gvaeTAAAENElEQVRYhe2YXYhWVRSGnz3jmBohaOVPZZOGCioZSUJaYEgXFv0ZQVToVYQXRVGRoBRC0YX0Y5Qp5I0pRERQFAReRCWhNURYFhkiacoYjv2p48/4dHHW5Mfn2We+b2ZMolk3h/O9737Xu/ess9feA0MxFP+tSIMppk4GbgUmAeOBb1JKqwczx4BDXahu9+zoiQmc/1Bb1LXqafWE+r76oHq9+kAYPqpuUW8532ZfDkPb1Ol1WFKfVj9U/wzeioHka7hm1eHAtcBE4Cgg8DGwHViQUjpaMbYd+AiYDswDfgGuAUYD+1JKn/R3AvWJLlZfV7tqavG0ujtqcnrfKqDOjnEn6+r6lDplMIzOUTtD9ID6pvpcJFXd0qTe1hj3jrpCXR3vJ6Jcru6v0fFh8Lj6iNpag62MJKua1Hwxxs2M96Q+pn4QC/CzOrY/ZntnvawEuzGw5U1qLo9x80uwRwN7ITe+pUL7dmAvsK4EOxzPS5oxS/FBARwpwV4DOoF7mtSEKPx3M1iLekj9rknNr9Qj6ogM3lsOI8vwqpXtpnpr6wKmxpbWiNHLgeuAfcDxDO1Y5LygEc1a8c/VvepZhtWZUV9vNKn5doy7KoP/oO4vywnVK9sDXAZcWsHpbtwqAG0UzeSPekC9EpgG7Ekp2ZSq2q1uz2CtFk2hU725Qb07qzSDs03NlUil+E6Lnl66Uatz4yPb24BWm/qXuk+9IcOZEvl29sfs0ugsX1Zw1kUNVrZcdX7wnq3gfGHRipc2bTYENkWS9gy+KPC1fei8Fby5GXxCbFnv9ctoiCyOJOszeKvaYXGguSvDuTuMfFaRZ03kWTIQs62euQHkVnd24Bsz+MbAZ2bwETGZ79W2Kj9VWxcppR6gI157MrSD8TyRwU/G81AG76FoBLtSSiczHKAPsxEXxfNYBu/tNrlEvZMobbFh8BQwpi8jlWbV+4DFFC3ycIZ2Wzxz+OE6Xll0APPUZ9TGW606Sn1I3RG11qUuKOGNU1+Nj+uQekVGb1LgPcEfV8KZpv4U+TrVVeqEKpMjLS54v8agI+p6dWIdb7662eJQrsVJalYfCzArdg1j3GbrzrTqhbGyB4LXHbvEmHqxyerXQTqgPlVLsjjR31GTUIvWuEQdVmW0RmNY8LfVaHSEbqrhDVfvV78Nzu5/FkMdHT+ovqSOqksyxTN3p+PqBnVOIwYrjM8Jnd6/zlbr/hlicWZ+0uJcvV8dSyy9llwn1BnqwcA3mdlrB2C6PUrCyDOjhPNE4M8ndQcwA7gX+K2Gl4A1wFRgWUqp7HozWKYfprjW7AJW1sEjgQ3Aj6i/Wx2vnCuTdYbX9OGjK6mLgLKv+XGKC+HklNKef8FsO7Ab2A+UXfF3lF4f1BaK03wb8Ok5c3h23ETR8UanlE7Xg1Xbzi5gNrDwHBnLRfOH76EYiqH4n8Xfv+kDHL0YKRYAAAAASUVORK5CYII=">
                     <img @click="page = 'Calendar'" @click="changeTitle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAACpUlEQVRYhe2YMUhVURzGfye0NDDICCLKwMHBsAhpSKQczDEIh3hLuJs2tBlNTQkNQUstCoINDU1NumhDUzpEi1CSRbQ1lQ3Cr+Gdh9f77n1e7fkM8gO53/nOd+75uOd/zrteOMD/DvWCuqguqD2N8lUQCgRcBNZjsyWEcK0RvgoObRcQOAu8iH8dDfQB0JQW1KPAqRxPk9pZ4F679X0PIfzKDajeAqaBlpybnwE+5vTVw/dbvR1CeJkZEJgAngNPEtpCgn8F8mqmHr67wH0gN+AxYDmE8KkiqBuJ/o1kXxL18KnLwI2kv6oGM7AGlCL/3EAfUGwX36Fck0eAsQb6qqGuqiM7GlRHqCPqai3DqroUeZv6Rm2L7bnKkaDOqH2RT6rDkY+r45EPq5OR96kzkXeqczlzLKUDZi3xpXg9AfTHK8AgmwdrP9AV+WWgJzG2Mr4n9hG9/ZF3xHtlzVEZm434BGcjb1Yfqs2xPaG2Rz6aeJoltTfyIXUo8l61FHmnOhp5uzqRM8dskSX+p2pw22NGvcnmctYbKyGEV7UMRc7Bx5TfPr4ltONALzCf8p6P1w8pfRB4B/xIaKeBVqBmwC3IWuIcbUA1Y/yUOpWhqw6ktKrlzNKKHNT7ioOAf4simwRgUn2QaLcCqOl3vpNRv5pxj1l1PdFuA37WK+Br4G2i3QXcAx6lfJXNNJ3SnwGzwEpCuwIMsBMc7OJd4J8PWLQGu9XBRPsiQEqD8q9Dlg7Qqybn6y6csoKcelt077CYmmvnLwshhKwjo2HIDah21OqvMzZCCGtZHZkBYg3N7Wmk6jmvZ+mZAUMI8+q5vP49wEYIYS1d/9QKkPfIG410wDWgpB7ejzDAMKl/5rd8H7T8QfEp5Y86+4EvwFgI4f0+zX+AxuMP1otp5WUoLqQAAAAASUVORK5CYII=">
             </footer>
         </template>
-        </div>
+    </div>
 
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -548,8 +548,7 @@
     <script src="https://kit.fontawesome.com/6c7cfa0dfc.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <!-- <script src="https://unpkg.com/vue@3"></script> -->
-    <script src="./vue.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
     <script src="./app.js"></script>
 </body>
 </html>

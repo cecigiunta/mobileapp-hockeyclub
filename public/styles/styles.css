@@ -14,7 +14,7 @@ main {
 
 /*------------------------------  Header -----------------------------*/
 .header{
-    background-color: rgba(211, 45, 12, 0.605);
+    background-color: rgba(7, 2, 1, 0.605);
     padding: 5px;
     position: sticky;
     top: 0;
@@ -27,10 +27,6 @@ main {
 .header-logout{
     max-height: 40px;
 }
-.title-header{
-    background-color: rgba(211, 45, 12, 0.605);
-    border: none;
-}
 
 .red-color{
     color:rgb(162, 6, 6);
@@ -41,6 +37,7 @@ main {
 /*------------------------------  Footer -----------------------------*/
 .footer{
     background-color: rgba(0, 0, 0, 0.642);
+    display: flex;
     height: 60px;
     padding: 20px;
     width: 100%;
@@ -50,6 +47,18 @@ main {
 .footer a{
     text-decoration: none;
     color: white;
+}
+@media only screen and (min-width: 500px) {
+    .footer{
+        background-color: rgba(0, 0, 0, 0.642);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 20px;
+        width: 10%;
+        position: fixed;
+        left: 0;
+    }
 }
 
 /* Animations  */

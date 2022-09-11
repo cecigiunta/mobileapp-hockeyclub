@@ -22,14 +22,14 @@ Vue.createApp({
                 
             })
             .catch(err => console.error(err))
-            this.detalle = JSON.parse(localStorage.getItem('detalle')) || []
+            // this.detalle = JSON.parse(localStorage.getItem('detalle')) || []
     },
     methods: {
         filtrarId(game){
             console.log(game._id);
             this.gameId = game._id
             this.detalle = this.results.filter(game => game._id === this.gameId)
-            localStorage.setItem('detalle', JSON.stringify(this.detalle));
+            this.page = 'Game Detail'
             return this.detalle
         },
         sortedFunction(arr,prop){
@@ -38,18 +38,18 @@ Vue.createApp({
             })
             return newArr   
         },
-        
     },
     computed: {
         filtrar(){
             this.filtered = this.results.filter(game => 
                 game.team1.toLowerCase().includes(this.search.toLowerCase()) ||
                 game.team2.toLowerCase().includes(this.search.toLowerCase()) ||
-                game.location.toLowerCase().includes(this.search.toLowerCase())
+                game.location.toLowerCase().includes(this.search.toLowerCase()) 
             )
         },
         changeTitle(){
             document.title = `MDHL | ${this.page}` 
         }
+
         },            
 }).mount('#app')
