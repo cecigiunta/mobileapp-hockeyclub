@@ -20,7 +20,7 @@
     <div id="app">
         <template v-if="page === 'Login'">
             <section class="body-login">
-                <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 mx-auto">
+                <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
                     <img class="logo-login mt-5" src="./assets/logo2.png" alt="logo">
                     <h3 class="text-white mt-3">Welcome</h3>
         
@@ -49,7 +49,7 @@
 
         <template v-if="page === 'Register'">
             <div class="body-login">
-                <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 mx-auto">
+                <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
                     <img class="logo-login mt-5" src="./assets/logo2.png" alt="logo">
                     <h3 class="text-white mt-3">Register your account</h3>
         
@@ -94,7 +94,7 @@
                 {{changeTitle}}     
                 <section v-if="page === 'Home'">
                     <h3 class="title-header text-white text-center py-3 mb-0">Welcome to MDHL</h3>
-                    <div class="col-12 col-sm-8 mx-auto">
+                    <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                         <div id="carouselExampleCaptions" class="carousel slide mb-5 mt-0" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -255,7 +255,7 @@
                    
                 </section>
 
-                <section v-if="page === 'Games'" class="col-12 col-sm-8 mx-auto">
+                <section v-if="page === 'Games'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-10 mx-auto">
                     <h1 class="text-white title-header mb-4 py-3 text-center">Games</h1>
                     <form  class="my-4 mx-auto col-11 d-flex justify-content-center">
                         <input v-model="search" type="text" class="input-search col-8 text-white">
@@ -274,13 +274,13 @@
 
                         <div v-if="results.length > 0">
                         <div class="container-game animate__fadeInRight">
-                                <div class="d-flex justify-content-between mx-3 my-2">
+                                <div class="d-flex justify-content-between mx-3 my-2 px-3">
                                     <h2 class="text-center fs-1">
                                         <span class="text-warning">{{game.team1}}</span>
                                         vs.
                                         <span class="text-info">{{game.team2}}</span>
                                     </h2>
-                                    <button class="btn btn-outline-dark" @click="filtrarId(game)">
+                                    <button class="btn btn-outline-dark ms-5" @click="filtrarId(game)">
                                         See detail
                                     </button>
                                 </div>
@@ -293,7 +293,7 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Game Detail'" class="col-12 col-sm-8 mx-auto">
+                <section v-if="page === 'Game Detail'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                     <h3 class="text-white m-3" @click="page = 'Games'"> <span class="text-danger ms-3 goback-link"><</span>< Go back</h3>
                     <div v-for="game in detalle">
                         <div v-if="detalle.length === 0" class="col-3 mx-auto my-5 py-2">
@@ -322,14 +322,16 @@
                                     <h3 class="me-4">Location:</h3>
                                     <h3 class="text-danger opacity-75">{{game.location}}</h3>
                                 </div>
-                                <iframe v-bind:src=game.location_map class="m-3 rounded" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
+                                <div class="mx-3">
+                                    <iframe v-bind:src=game.location_map class="rounded" width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section v-if="page === 'Teams'" class="col-12 col-sm-8 mx-auto">
+                <section v-if="page === 'Teams'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 mx-auto">
                     <h1 class="text-white my-4 text-center">Teams</h1>
                     {{filtrar}}
                     <h6 class="text-info text-center">
@@ -349,9 +351,9 @@
                     </div>
 
                     <div v-if="results.length > 0">
-                        <div v-for="team in filtered" class="d-flex col-12 mx-auto mb-3">
-                            <div class="teams-div col-10 mx-auto animate__fadeInRight">
-                                <div>
+                        <div v-for="team in filtered" class="col-12 mx-auto mb-3">
+                            <div class="teams-div mx-auto animate__fadeInRight">
+                                <div class="d-flex flex-column align-items-center my-2 py-3">
                                     <h1 class="text-center text-white">{{team.team1}}</h1>
                                     <h5 class="text-center text-white">{{team.location}}</h5>
                                 </div>
@@ -360,7 +362,7 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Calendar'" class="col-12 col-sm-8 mx-auto">
+                <section v-if="page === 'Calendar'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                     <h1 class="text-white text-center py-3">See our fall schedule</h1>
                 
                     <div class="container-calendar col-11 p-2 mb-3 d-flex flex-column gap-3 mx-auto">
@@ -392,7 +394,7 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Register Form'" class="col-12 col-sm-8 mx-auto">
+                <section v-if="page === 'Register Form'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                     <h3 class="text-white m-3" @click="page = 'Teams'"> <span class="text-danger ms-3 goback-link"><</span>< Go back</h3>
                     <h1 class="text-white my-4 text-center">Registration Form</h1>
 

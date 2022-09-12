@@ -1,8 +1,21 @@
 .body-login{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(99, 7, 24) 100%, rgba(0,0,0,1) 100%);
-    height: 100vh;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
+@media (max-width: 790px) and (orientation: landscape)  {
+    .body-login {
+        min-height: unset;
+        position: inherit;
+        margin:auto;
+        padding-bottom: 30px;
+    }
+  }
 .logo-login{
     max-width: 150px;
 }
