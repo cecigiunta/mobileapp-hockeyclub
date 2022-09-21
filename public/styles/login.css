@@ -15,7 +15,7 @@
         margin:auto;
         padding-bottom: 30px;
     }
-  }
+}
 .logo-login{
     max-width: 150px;
 }
@@ -26,6 +26,9 @@
 }
 .white-border{
     border-bottom: white solid;
+}
+.red-border{
+    border-bottom: rgb(242, 48, 48) solid;
 }
 
 .btn-login-register{

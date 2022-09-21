@@ -48,7 +48,21 @@ main {
     text-decoration: none;
     color: white;
 }
+
+
+/* Animations  */
+.animate__fadeInRight{
+    animation-duration: 1s;
+}
+.animate__fadeInUp{
+    animation-duration: 2s;
+}
+
+/*   Media Queries  */
 @media only screen and (min-width: 500px) {
+    .header{
+        padding: 20px;
+    }
     main {
         margin-bottom: 10px;
     }
@@ -64,15 +78,13 @@ main {
         bottom: 0;
         top: 30px;
     }
-    /* .header img{
-        display: none;
-    } */
+    .carousel{
+        width: 60%;
+    }
+    .carousel-item {
+        width: 100% !important;
+        height: 90% !important;
+        margin: auto;
+    }
 }
 
-/* Animations  */
-.animate__fadeInRight{
-    animation-duration: 1s;
-}
-.animate__fadeInUp{
-    animation-duration: 2s;
-}

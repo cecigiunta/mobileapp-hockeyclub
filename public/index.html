@@ -26,14 +26,14 @@
         
                     <form class="d-flex flex-column gap-4 align-items-center my-3 col-11 animate__fadeInUp">
                         <div class="white-border col-8">
-                            <input type="text" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="username" required>
+                            <input v-model="user_login" type="text" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="username" required>
                         </div>
                         <div class="white-border col-8">
-                            <input type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
+                            <input v-model="password_login" type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
                         </div>
                     </form>
-            
-                    <button  type="submit" @click="page = 'Home'" class="btn btn-login-register btn-outline-light btn-noborder mt-3 mb-5 lead">
+                    <p class="login-error text-danger d-none">Rellene campos obligatorios!!! </p>
+                    <button @click="logIn" class="btn btn-login-register btn-outline-light btn-noborder mt-3 mb-5 lead">
                         Login
                     </button>
         
@@ -55,20 +55,20 @@
         
                     <form class="d-flex flex-column gap-4 align-items-center my-3 col-10 animate__fadeInUp">
                         <div class="white-border col-9">
-                            <input type="text" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="username" required>
+                            <input v-model="user_register" type="text" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="username" required>
                         </div>
                         <div class="white-border col-9">
-                            <input type="email" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="email" required>
+                            <input v-model="email_register" type="email" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="email" required>
                         </div>
                         <div class="white-border col-9">
+                            <input v-model="password_register" type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
+                        </div>
+                        <!-- <div class="white-border col-9">
                             <input type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
-                        </div>
-                        <div class="white-border col-9">
-                            <input type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
-                        </div>
+                        </div> -->
                     </form>
             
-                    <button @click="page = 'Login'" class="btn mt-4 mb-5 btn-login-register btn-outline-light btn-noborder">
+                    <button @click="register" class="btn mt-4 mb-5 btn-login-register btn-outline-light btn-noborder">
                         SIGN UP
                     </button>
                 </div>            
@@ -83,7 +83,7 @@
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABmJLR0QA/wD/AP+gvaeTAAADJklEQVRYhc2YzUtUURTAzzURx0lIklTGMmgb0SJskbVQaFPowjBqUxD9BYVptCkzsvoH+iKM2qVFi6CgoHAZUYsKIskipWJMw9SKml+Ld15z5/Xue/MleDZ35p6P+3vnHO6974ksIzGlOAM1ItIoIlUi8ktEPhljFsoBltfiwH7gJjABZMiVDPAOuAHsAxJLAZEAeoGvFCbTwFGgulwgXcAHa4HvwC3gANAKpDRjKWArcBAYUTtf3gO7S4EwwAmrFDNAn/ZJPv5JoB+YVf8/+r+wPlWQa9aTjQCri3yoeuC2FetKQUCaETQrAy5noBpoA7p1DO0NoAI4bWW5P1+QLk0pwIDDJgmcB+YCDTsHDLlKCQxaJdsVB5KwmnUkLCNAHfCMaHkKrHJkyC/ZhCuTvnGvGs64egS4EwPiy6jDvx74pjZHXCA1ZPeRPodNa54gvmxxxDmu+mnCNka8nRW8/cFV8zMFwgw64iSBebXZ689XWDZ+Q92POF82OOZdEmpvjJkXkQeBdXNgtul4NyL4zwJhouz9ddpyYICkiKzTudcRAV4UCPM8QvdKx5acvgHWW3VudnkDzcBinv2yAKQiYq21bFtEsmWyO3raFcAY81FEQjfCEDlljJmM0Ket3zmZabAoG6NWwDu3LsRk5Rwx5w/QZNk32IpKskfApugH/uezA2839U/lWWAUaIv3FgE2q99vYEVQ+VaVh/IJFvCtKsLnsK73xp+rtPQPxdsXOkTkakwgIyIbRaRFRBpEpB5Ii8hnEZkQkZfGGGJ4OnR8FLbAHiWdI+SQU5sO4DIwFdMzU8AloN0Rp47sTbA7zKAKmFSD3oBuO/AkBsAljwn0Ed6NEV0vvMR410LwmjGF19hni4QIykW8B24ieyAfCwVRmFq8ewbAPWCsTCC+jGlc8F5pVjphFKid/9+Hyi0ZYGckiAU0tMQwQ3mBKEwFMLxEIMNARTxFLpDBu3SXq2QZjVf8+z3QSfy+EidTQGfREAGgWuAkkC4QIq1+tWUBCUAlgB7gOjBO+FeIcdX3UOBXiFK/zyREZI2IVIvIDxH5YoxZLCXmspG/aRKUOAm+lM8AAAAASUVORK5CYII=">
                         </span>
                     <div class="d-flex flex-column align-items-center me-3">
-                        <span  @click="page = 'Register'">
+                        <span  @click="logOut">
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABmJLR0QA/wD/AP+gvaeTAAABqElEQVRYhe2YPUscURSGnxND8IMFa4uYJhbaBCT/II0/wUKEFOY/WJkfkiaBKPZW8aPMkg+wMYVlSEiXCFsYgvKkWBeWce7M7np3EPSp7sy8d8975hxmzwzcU07UCdQpYDJDrPOI+DvSTvWJeqRemIcL9VCdH8XMp0wmirRTMUvLpM4BP68OO8Dp0NlcZwFoXa3nIuLXQLvUpb5MjjIYwW7JeyyVaR7kCJSLezMpmjTzvU7QpJmXwGvgMiUYqxl1U30KEBGXEbEFrNB9XDRrBngGfFVXeyci4kNElJasiTK1gPfqW3W6Sthkz6wBn9XFlODhTSOoP4BUxjOF40WgrW5ExE52M8BsSdAqWsC22omIvdxmzoB/iWszwKPCuQ6wUTSSJNcfpbpbGB9OqnqmyQZ+BzyPiG8pQY4y1dEBXkXEdp1w3HfmGFjuN6K+UB8P/AtjGq4m1C27s3DpcNVEmXq8AdarBE02cG1p7uxwVcutMpNq4D9962X1S4ZYC33r30PtVNsjvzNW83HoNNR59cC879r7VjzwBvkKMQlMDZ3NdUb/CnHn+Q+LJR0loVph9AAAAABJRU5ErkJggg==">
                         </span>
                     </div>
@@ -94,6 +94,10 @@
                 {{changeTitle}}     
                 <section v-if="page === 'Home'">
                     <h3 class="title-header text-white text-center py-3 mb-0">Welcome to MDHL</h3>
+                    <section v-if="isLogged === true">
+                        <h1 class="text-white mx-auto">You are LOGGED NOW</h1>
+                    </section>
+
                     <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                         <div id="carouselExampleCaptions" class="carousel slide mb-5 mt-0" data-bs-ride="carousel">
                             <div class="carousel-indicators">
@@ -293,6 +297,7 @@
                     </div>
                 </section>
 
+                <!-- EN EL DETALLE TIENEN QUE APARECER LOS COMENTARIOS -->
                 <section v-if="page === 'Game Detail'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                     <h3 class="text-white m-3" @click="page = 'Games'"> <span class="text-danger ms-3 goback-link"><</span>< Go back</h3>
                     <div v-for="game in detalle">
@@ -326,6 +331,17 @@
                                     <iframe v-bind:src=game.location_map class="rounded" width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                                     </iframe>
                                 </div>
+                            </div>
+                            <div v-if="isLogged === true" class="bg-white text-center">
+                                <h3>Posts for this Game:</h3>
+                                <div v-for="post in posts" >
+                                    <div class="bg-info">
+                                        <p> {{post.user}} </p>
+                                        <p> {{post.text}} </p>   
+                                        <p> {{post.created_at}} </p> 
+                                    </div>
+                                </div>
+                                <h4> (+) Add new post: </h4>
                             </div>
                         </div>
                     </div>
@@ -530,6 +546,11 @@
         </template>
     </div>
 
+    <!-- SCRIPTS DE FIREBASE -->
+    <script src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
+    <script src="/__/firebase/9.8.3/firebase-database-compat.js"></script>
+    <script src="/__/firebase/9.8.3/firebase-auth-compat.js"></script>
+    <script src="/__/firebase/init.js"></script>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
@@ -547,6 +568,8 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
     </script>
+
+
     <script src="https://kit.fontawesome.com/6c7cfa0dfc.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
