@@ -18,6 +18,7 @@
 </head>
 <body class="body">
     <div id="app">
+        <!-- {{persistirSesion}} -->
         <template v-if="page === 'Login'">
             <section class="body-login">
                 <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
@@ -26,15 +27,19 @@
         
                     <form class="d-flex flex-column gap-4 align-items-center my-3 col-11 animate__fadeInUp">
                         <div class="white-border col-8">
-                            <input v-model="user_login" type="text" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="username" required>
+                            <input v-model="user_login" @keyUp="removeRedBorder" type="text" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="email" required>
                         </div>
                         <div class="white-border col-8">
-                            <input v-model="password_login" type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
+                            <input v-model="password_login" @keyUp="removeRedBorder" type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
                         </div>
                     </form>
-                    <p class="login-error text-danger d-none">Rellene campos obligatorios!!! </p>
+                    <p class="login-error text-danger d-none">All fields are required </p>
+                    <p class="alert-message text-primary">{{errorMessage}} </p>
                     <button @click="logIn" class="btn btn-login-register btn-outline-light btn-noborder mt-3 mb-5 lead">
                         Login
+                    </button>
+                    <button @click="logInWithGoogle" class="btn btn-login-register btn-outline-light btn-noborder mt-2 mb-2 lead">
+                        Login with Google
                     </button>
         
                     <div class="d-flex flex-column align-items-center mt-3">
@@ -55,21 +60,28 @@
         
                     <form class="d-flex flex-column gap-4 align-items-center my-3 col-10 animate__fadeInUp">
                         <div class="white-border col-9">
-                            <input v-model="user_register" type="text" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="username" required>
+                            <input v-model="username_register" @keyUp="removeRedBorder" type="text" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="username" required>
                         </div>
                         <div class="white-border col-9">
-                            <input v-model="email_register" type="email" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="email" required>
+                            <input v-model="email_register" @keyUp="removeRedBorder" type="email" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="email" required>
                         </div>
                         <div class="white-border col-9">
-                            <input v-model="password_register" type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
+                            <input v-model="password_register" @keyUp="validatePassword" type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
                         </div>
-                        <!-- <div class="white-border col-9">
-                            <input type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
-                        </div> -->
+                        <div class="white-border col-9">
+                            <input v-model="confirm_password" @keyUp="confirmPassword" type="password" class="input-login py-1 px-2 col-8 text-white text-center w-100" placeholder="password" required>
+                        </div>
                     </form>
-            
-                    <button @click="register" class="btn mt-4 mb-5 btn-login-register btn-outline-light btn-noborder">
-                        SIGN UP
+                    <p class="login-error text-danger d-none">All fields are required </p>
+                    <p class="text-info text-center mx-auto">{{errorMessage}} </p>
+                    <button @click="register" class="btn mt-4 mb-3 btn-login-register btn-outline-light btn-noborder">
+                        Sign up
+                    </button>
+                    <button @click="registerGoogle" class="btn mt-4 mb-3 btn-login-register btn-outline-light btn-noborder">
+                        Sign up with Google
+                    </button>
+                    <button @click="page = 'Login'" class="btn mt-1 mb-3 btn-login-register btn-outline-light btn-noborder">
+                        I have an account
                     </button>
                 </div>            
             </div>
@@ -79,23 +91,29 @@
             <header class="header d-flex justify-content-between">
                 <img src="./assets/logo2.png" alt="mylogo" class="header-logo">
                 <div class="d-flex gap-3 mt-3">
+                    <template v-if="isLogged === false">
                         <span  @click="page = 'Login'">
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABmJLR0QA/wD/AP+gvaeTAAADJklEQVRYhc2YzUtUURTAzzURx0lIklTGMmgb0SJskbVQaFPowjBqUxD9BYVptCkzsvoH+iKM2qVFi6CgoHAZUYsKIskipWJMw9SKml+Ld15z5/Xue/MleDZ35p6P+3vnHO6974ksIzGlOAM1ItIoIlUi8ktEPhljFsoBltfiwH7gJjABZMiVDPAOuAHsAxJLAZEAeoGvFCbTwFGgulwgXcAHa4HvwC3gANAKpDRjKWArcBAYUTtf3gO7S4EwwAmrFDNAn/ZJPv5JoB+YVf8/+r+wPlWQa9aTjQCri3yoeuC2FetKQUCaETQrAy5noBpoA7p1DO0NoAI4bWW5P1+QLk0pwIDDJgmcB+YCDTsHDLlKCQxaJdsVB5KwmnUkLCNAHfCMaHkKrHJkyC/ZhCuTvnGvGs64egS4EwPiy6jDvx74pjZHXCA1ZPeRPodNa54gvmxxxDmu+mnCNka8nRW8/cFV8zMFwgw64iSBebXZ689XWDZ+Q92POF82OOZdEmpvjJkXkQeBdXNgtul4NyL4zwJhouz9ddpyYICkiKzTudcRAV4UCPM8QvdKx5acvgHWW3VudnkDzcBinv2yAKQiYq21bFtEsmWyO3raFcAY81FEQjfCEDlljJmM0Ket3zmZabAoG6NWwDu3LsRk5Rwx5w/QZNk32IpKskfApugH/uezA2839U/lWWAUaIv3FgE2q99vYEVQ+VaVh/IJFvCtKsLnsK73xp+rtPQPxdsXOkTkakwgIyIbRaRFRBpEpB5Ii8hnEZkQkZfGGGJ4OnR8FLbAHiWdI+SQU5sO4DIwFdMzU8AloN0Rp47sTbA7zKAKmFSD3oBuO/AkBsAljwn0Ed6NEV0vvMR410LwmjGF19hni4QIykW8B24ieyAfCwVRmFq8ewbAPWCsTCC+jGlc8F5pVjphFKid/9+Hyi0ZYGckiAU0tMQwQ3mBKEwFMLxEIMNARTxFLpDBu3SXq2QZjVf8+z3QSfy+EidTQGfREAGgWuAkkC4QIq1+tWUBCUAlgB7gOjBO+FeIcdX3UOBXiFK/zyREZI2IVIvIDxH5YoxZLCXmspG/aRKUOAm+lM8AAAAASUVORK5CYII=">
                         </span>
-                    <div class="d-flex flex-column align-items-center me-3">
-                        <span  @click="logOut">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABmJLR0QA/wD/AP+gvaeTAAABqElEQVRYhe2YPUscURSGnxND8IMFa4uYJhbaBCT/II0/wUKEFOY/WJkfkiaBKPZW8aPMkg+wMYVlSEiXCFsYgvKkWBeWce7M7np3EPSp7sy8d8975hxmzwzcU07UCdQpYDJDrPOI+DvSTvWJeqRemIcL9VCdH8XMp0wmirRTMUvLpM4BP68OO8Dp0NlcZwFoXa3nIuLXQLvUpb5MjjIYwW7JeyyVaR7kCJSLezMpmjTzvU7QpJmXwGvgMiUYqxl1U30KEBGXEbEFrNB9XDRrBngGfFVXeyci4kNElJasiTK1gPfqW3W6Sthkz6wBn9XFlODhTSOoP4BUxjOF40WgrW5ExE52M8BsSdAqWsC22omIvdxmzoB/iWszwKPCuQ6wUTSSJNcfpbpbGB9OqnqmyQZ+BzyPiG8pQY4y1dEBXkXEdp1w3HfmGFjuN6K+UB8P/AtjGq4m1C27s3DpcNVEmXq8AdarBE02cG1p7uxwVcutMpNq4D9962X1S4ZYC33r30PtVNsjvzNW83HoNNR59cC879r7VjzwBvkKMQlMDZ3NdUb/CnHn+Q+LJR0loVph9AAAAABJRU5ErkJggg==">
-                        </span>
-                    </div>
+                    </template>
+                    <template v-if="isLogged === true">
+                        <div class="d-flex flex-column align-items-center me-3">
+                            <span  @click="logOut">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABmJLR0QA/wD/AP+gvaeTAAABqElEQVRYhe2YPUscURSGnxND8IMFa4uYJhbaBCT/II0/wUKEFOY/WJkfkiaBKPZW8aPMkg+wMYVlSEiXCFsYgvKkWBeWce7M7np3EPSp7sy8d8975hxmzwzcU07UCdQpYDJDrPOI+DvSTvWJeqRemIcL9VCdH8XMp0wmirRTMUvLpM4BP68OO8Dp0NlcZwFoXa3nIuLXQLvUpb5MjjIYwW7JeyyVaR7kCJSLezMpmjTzvU7QpJmXwGvgMiUYqxl1U30KEBGXEbEFrNB9XDRrBngGfFVXeyci4kNElJasiTK1gPfqW3W6Sthkz6wBn9XFlODhTSOoP4BUxjOF40WgrW5ExE52M8BsSdAqWsC22omIvdxmzoB/iWszwKPCuQ6wUTSSJNcfpbpbGB9OqnqmyQZ+BzyPiG8pQY4y1dEBXkXEdp1w3HfmGFjuN6K+UB8P/AtjGq4m1C27s3DpcNVEmXq8AdarBE02cG1p7uxwVcutMpNq4D9962X1S4ZYC33r30PtVNsjvzNW83HoNNR59cC879r7VjzwBvkKMQlMDZ3NdUb/CnHn+Q+LJR0loVph9AAAAABJRU5ErkJggg==">
+                            </span>
+                        </div>
+                    </template>
                 </div>
             </header>
 
             <main>
                 {{changeTitle}}     
                 <section v-if="page === 'Home'">
-                    <h3 class="title-header text-white text-center py-3 mb-0">Welcome to MDHL</h3>
-                    <section v-if="isLogged === true">
-                        <h1 class="text-white mx-auto">You are LOGGED NOW</h1>
+                    <section v-if="alias != ''">
+                        <h1 class="text-white text-center py-3 mb-0 text-capitalize">Welcome, {{alias}}</h1>
+                    </section>
+                    <section v-if="alias === ''">
+                        <h3 class="title-header text-white text-center py-3 mb-0">Welcome to MDHL</h3>
                     </section>
 
                     <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
@@ -260,15 +278,15 @@
                 </section>
 
                 <section v-if="page === 'Games'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-10 mx-auto">
-                    <h1 class="text-white title-header mb-4 py-3 text-center">Games</h1>
+                    <h1 class="text-white py-3 text-center">Games</h1>
                     <form  class="my-4 mx-auto col-11 d-flex justify-content-center">
                         <input v-model="search" type="text" class="input-search col-8 text-white">
                         <button class="search-btn text-white lead ms-1">Search</button>
                     </form>
                 
-                    <!-- Spinner -->
                     {{filtrar}}
                     <div class="container-games d-flex flex-column gap-3 mx-auto" v-for="game in filtered">
+                        <!-- Spinner -->
                         <div v-if="results.length === 0" class="col-3 mx-auto my-5 py-2">
                             <div class="text-warning">
                                 <div class="spinner-border ms-3" role="status"></div>
@@ -278,13 +296,13 @@
 
                         <div v-if="results.length > 0">
                         <div class="container-game animate__fadeInRight">
-                                <div class="d-flex justify-content-between mx-3 my-2 px-3">
-                                    <h2 class="text-center fs-1">
+                                <div class="d-flex justify-content-between my-2 px-3">
+                                    <h2 class="text-center fs-1 me-4">
                                         <span class="text-warning">{{game.team1}}</span>
                                         vs.
                                         <span class="text-info">{{game.team2}}</span>
                                     </h2>
-                                    <button class="btn btn-outline-dark ms-5" @click="filtrarId(game)">
+                                    <button class="btn btn-outline-dark ms-3" @click="seeDetail(game)">
                                         See detail
                                     </button>
                                 </div>
@@ -297,51 +315,60 @@
                     </div>
                 </section>
 
-                <!-- EN EL DETALLE TIENEN QUE APARECER LOS COMENTARIOS -->
-                <section v-if="page === 'Game Detail'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
-                    <h3 class="text-white m-3" @click="page = 'Games'"> <span class="text-danger ms-3 goback-link"><</span>< Go back</h3>
-                    <div v-for="game in detalle">
-                        <div v-if="detalle.length === 0" class="col-3 mx-auto my-5 py-2">
-                            <div class="text-warning">
-                                <div class="spinner-border ms-4" role="status"></div>
+                <section v-if="page === 'Game Detail'" class="gap-2 col-12 col-lg-10">
+                    <h3 class="text-white m-3" @click="page = 'Games'"> <span class="text-danger goback-link"><</span>< Go back</h3>
+                    <div class="d-flex flex-column align-items-center">                    
+                        <div v-for="game in detalle" class="col-12 col-md-9 mx-auto my-5">
+                            <div v-if="detalle.length === 0" class="col-3 mx-auto my-5 py-2">
+                                <div class="text-warning">
+                                    <div class="spinner-border ms-4" role="status"></div>
+                                </div>
+                                <span class="fs-1 text-warning opacity-75">Loading...</span>
                             </div>
-                            <span class="fs-1 text-warning opacity-75">Loading...</span>
-                        </div>
-                    
-                        <div v-if="detalle.lenght != 0">
-                            <div class="container-detail col-11 mb-3 d-flex flex-column align-items-center gap-3 mx-auto">
-                                <p class="text-white header-detail w-100 mb-3 py-2 text-center fs-1">
-                                    <span class="text-warning">{{game.team1}}</span>
-                                        vs. 
-                                    <span class="text-info">{{game.team2}} </span>
-                                </p>
-                                <div class="col-9 d-flex flex-row justify-content-between">
-                                    <h3 class="text-center">Date of Game:</h3>
-                                    <h3 class="text-danger opacity-75">{{game.day_date}}/{{game.month_date}}</h3>
-                                </div>
-                                <div class="col-9 d-flex flex-row justify-content-between">
-                                    <h3>Time:</h3>
-                                    <h3 class="text-danger opacity-75">{{game.time}}</h3>
-                                </div>
-                                <div class="col-9 d-flex flex-column align-items-center">
-                                    <h3 class="me-4">Location:</h3>
-                                    <h3 class="text-danger opacity-75">{{game.location}}</h3>
-                                </div>
-                                <div class="mx-3">
-                                    <iframe v-bind:src=game.location_map class="rounded" width="260" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                    </iframe>
-                                </div>
-                            </div>
-                            <div v-if="isLogged === true" class="bg-white text-center">
-                                <h3>Posts for this Game:</h3>
-                                <div v-for="post in posts" >
-                                    <div class="bg-info">
-                                        <p> {{post.user}} </p>
-                                        <p> {{post.text}} </p>   
-                                        <p> {{post.created_at}} </p> 
+                        
+                            <div v-if="detalle.lenght != 0">
+                                <div class="container-detail col-11 mb-3 d-flex flex-column align-items-center gap-3 mx-auto">
+                                    <p class="text-white header-detail w-100 mb-3 py-2 text-center fs-1">
+                                        <span class="text-warning">{{game.team1}}</span>
+                                            vs. 
+                                        <span class="text-info">{{game.team2}} </span>
+                                    </p>
+                                    <div class="col-9 d-flex flex-column align-items-center">
+                                        <h3 class="text-center text-white">Date of Game:</h3>
+                                        <h3 class="text-danger">{{game.day_date}}/{{game.month_date}}</h3>
                                     </div>
+                                    <div class="col-9 d-flex flex-column align-items-center">
+                                        <h3 class="text-white">Time:</h3>
+                                        <h3 class="text-danger">{{game.time}}</h3>
+                                    </div>
+                                    <div class="col-9 d-flex flex-column align-items-center">
+                                        <h3 class="me-4 text-white">Location:</h3>
+                                        <h3 class="text-danger">{{game.location}}</h3>
+                                    </div>
+                                    <div class="mx-3 h-50 col-10">
+                                        <iframe v-bind:src=game.location_map class="rounded col-12 h-50" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                    <footer class="footer-detail w-100">
+                                        <div v-if="isLogged === false">
+                                            <h4 class="text-white p-3">Posts: ({{filteredPost.length}}) </h4>
+                                            <template v-for="post in filteredPost">
+                                                <div class="comment col-11 mx-auto">
+                                                    <div class="d-flex">
+                                                        <img class="ms-2 pb-3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEvklEQVRIicWXbWxTZRTHf+e2MCAxorzUjS5QAmUbmQ5UJkPAKTrCRJ1ME6KgBPCDIcYPCn7Dj5oQ3zDRRJQIWdToBFFeJijBtyiOMNat7Ris3dq1lA0JiXa63ud5/CB7qW03piae5H6453/+53fPzb33eS78TyFjdvQ05uMc7wU9BSyFNgm06mLawth/D+71FePQGzE8DHiAJJirIJkBTASCYA6grd1MvTn478C9TTPAeglYC+YwYu3D5iCu0kRaXcLnwkk1RteAVGHMHsRsZ2pZ9zUNlhYXW1eS8PWS8DVwsbVsDL4yEr4vSfh66GlePjZovGU98ZYU8Zat2Zv75xJveYJ465PEmoty9NhGvKWPeMv6bHLmrY767kesegyP4Z7/SZoWiUzEceVtjDwOnAMU4AXzMeNkM9Pn/5req7UWoQ4tNRSWHMo9aYfPRSSQIOJ/Pqve5f+ALr+fSKB0MBdqK6LTf5quwGdZPZ2BF+jyXyZ6xp0bHA7U0RloyK61LiAc+IPw2eJMLeghHPiNzuCSDM0YIRw4Smfww+Fpa8h8thglj6Id27KClfMulDQxyxvI0GYVhVDyIykqMzQRQ8q5FZs1tLeXZIJTZiNajuDxNmUHm3FoK5lVA9CSBGt8Vm3u3NMYaQCzOROsqEXJpzkbGzmF4jba2qZmaKHQZJRUYEtjTr9t7UNRmw72+/PRMpOUM/eT5/V+jaYVZe3h/PnrB/PB4HX02bsxRJg352BOv04dQuPmTLt7CJzKK0FJktLZiZxGEUO/WYMin6Ruo6W9Dl/7HvodQRRe+nUNIiqnv6QkjpI+LEqGwDAZJaN/5MvmddMbvR3FM2i5hJIrYG3F6l/ALUWhUf1aYmi5EcAJgG2ciIy+YDTGJiF9KzEswzaFfzUzkMpL8kPkCBWFfSP6lQAGGJhYOS6gJX9E06nQU/B7B4Y3UJKHtn6+ekzAyE7Gpzpo7Ng0ysQFaOuXYRM7z+GwJ3EydBOLPBfSio8fdzLJ8x62qcLwHOWz6xDRaTXGWJwMrwPZwU+hpSTDG6mstNNqvusqQKmJiAoMTVxR2I2Wc9hSnXGVeZ7X0CxGU84ds/dmQAFENOWe94FFaFnCBM8rGTUOU42WGIvmRIbAAIrP0VKTVvx9+G60bMCY1Sz2hLPevuFRPitESh5AySa+iaQviUpqUFI/cDoM7HgLLVWcCC8Yylnb0fI6FZ5RdxSDsWymH81OMC8O5r7tvBXNfWhrVyZ4eWE7Sj7COHYAcKzDhZY76Te7GGso6x2ULKXhwnQAbGsHSvazrLB5oCT9FTqWcCGpAJiXEdOEsd7lHvcIy9kI8VW0G6wNoBaCbMOilEp3dEB2phWvcCU4GlsL5gBwGIj/IyiAkTjGPA1WNSKPUFkQHS5bGYZ7CxpQZjOKalQW/VrDRlCsxjZbWFGw/+9y7q/V4fgqjNkLchqH2UJVwbU9YF/EirHMmyALgQ2syoSODAY40pNPyn4VWIPhGCJ7IXWC1YXp29ZDUTfKWg6yDlgB7MehnmWVO5qt7ejggTgQn4+RTSC1YNwgl4GLoAWsaWBuAGIY6hHZxYOu5tFajv0Xpv6SG7GLwUy52uISlh3koRmRMff6P+JPbJf2553hbeYAAAAASUVORK5CYII=">       
+                                                        <p class="col-9 ms-2 fw-bold"> {{post.usuario}} </p>
+                                                    </div>
+                                                    <p class="ms-4 pb-2"> {{post.comment}} </p>   
+                                                </div>
+                                            </template>
+                                            <button class="btn btn-outline-dark col-10 mx-auto" @click="addNewPost"> (+) Add new post: </button>
+                                            <div class="comment-dnone d-none">
+                                                <input v-model="comment" class="col-12 my-3"></input>
+                                                <button class="btn btn-success col-10" @click="crearComentario(game)" >Post</button>
+                                            </div>
+                                        </div>
+                                    </footer>
                                 </div>
-                                <h4> (+) Add new post: </h4>
+                                
                             </div>
                         </div>
                     </div>

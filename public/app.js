@@ -1,49 +1,50 @@
-Vue.createApp({
+const app = Vue.createApp({
     data() {
         return {
             url: './api.json',
             search: '',
             gameId : '',
-            page: 'Home', 
-
+            page: 'Games', 
             
-            //registro variables
-            user_register: '',
+            //register variables
+            username_register: '',
             email_register: '',
             password_register: '',
-            
+            password_regEx : new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})"), //un digito, una minuscula, una mayuscula, 8 caracteres minimo 
+            confirm_password: '',
+
             //login variables
             user_login: '',
             password_login: '',
             isLogged: false,
+            errorMessage: '',
             whiteborder : document.getElementsByClassName('white-border'),
             loginError: document.getElementsByClassName('login-error'),
-            
-            //usuario
+
+            //user variables
             alias: '', //el nombre q voy a mostrar en la app
             usuario: null,
+
+            //Comentarios
+            divComment: document.getElementsByClassName('comment-dnone'),
+            comment: '',
+            posts: [],
+            filteredPost: [
+                {comment: 'Hola casod hsaid sasdhasj kaqdkjsadksajkdsjdkjaskdjks askdjakjdkajsdkjak',
+                usuario: 'Cecilia Giunta'},
+                {comment: 'Hola casod hsaid sasdhasj kaqdkjsadksajkdsjdkjaskdjks askdjakjdkajsdkjak',
+                usuario: 'Cecilia '},
+                {comment: 'Hola casod hsaid sasdhasj kaqdkjsadksajkdsjdkjaskdjks askdjakjdkajsdkjak',
+                usuario: 'hola'}
+            ],
+            
 
             results: [],
             filtered: [],
             detalle: [],
             september_games: [],
             october_games: [],
-            posts: [{
-                id: 1,
-                user: 'Juan',
-                text: 'This is the first post',
-                created_at: new Date(),
-                updated_at: new Date(),
-                }, 
-                {
-                id: 2,
-                user: 'Jane',
-                text: 'This is the second post',
-                created_at: new Date(),
-                updated_at: new Date(),
-                },
-            ],
-    }
+        }
     },
     created(){
         fetch(this.url)
@@ -52,17 +53,210 @@ Vue.createApp({
                 this.results = data;
                 this.september_games = this.sortedFunction((this.results.filter(game => game.month_date === 9)), "day_date")
                 this.october_games = this.sortedFunction((this.results.filter(game => game.month_date === 10)), "day_date")
-                
             })
             .catch(err => console.error(err))
             // this.detalle = JSON.parse(localStorage.getItem('detalle')) || []
     },
+    mounted(){
+        const comentariosdb = firebase.database().ref('/comentarios')
+        comentariosdb.on('child_added', (data) =>{
+            getComments(data)
+        })
+    },
     methods: {
-        filtrarId(game){
+        register() {
+            if (this.email_register != '' && this.password_register != '' && this.validatePassword && this.confirmPassword) {
+                firebase.auth().createUserWithEmailAndPassword(this.email_register, this.password_register)
+                .then((userCredential) => {
+                    var user = userCredential.user;
+                    console.log(user)
+                    this.alias = this.username_register
+                    this.page = 'Login'
+                    this.email_register = ''
+                    this.password_register = ''
+                    this.username_register = ''
+                    this.confirm_password = ''
+                    this.errorMessage = ''
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode)
+                    console.log(errorMessage)
+
+                    if(errorCode === 'auth/invalid-email'){
+                        this.errorMessage = 'Invalid email'
+                    }
+                    if(!loginError[0].classList.contains('d-none')){
+                        this.errorMessage = ''
+                    }
+                });
+            }          
+            else {
+                for(let i = 0; i < this.whiteborder.length; i++) {
+                    this.whiteborder[i].classList.add('red-border');
+                }
+                this.loginError[0].classList.remove('d-none')
+                this.errorMessage = ''
+            }
+        },
+        validatePassword(){
+            console.log(this.password_register);
+            if(!this.password_regEx.test(this.password_register)){
+                this.errorMessage = 'Password has to contain: one uppercase, one lowercase, one digit and 8 characters '
+                console.log("incorrecta");
+            }
+            else {
+                this.errorMessage = 'Good pass!'
+                console.log("correcta");
+            } 
+        },
+        confirmPassword(){
+            if(this.validatePassword){
+                if(this.password_register === this.confirm_password){
+                    this.errorMessage = 'Passwords match ✔'
+                } else{ 
+                    console.log(this.errorMessage);
+                    this.errorMessage = 'Passwords do not match.'
+                }
+            }
+        },
+        logIn() {
+            if (this.user_login != '' && this.password_login != '') {
+                firebase.auth().signInWithEmailAndPassword(this.user_login, this.password_login)
+                .then((userCredential) => {
+                    var user = userCredential.user;
+                    this.usuario = user
+                    this.isLogged = true
+                    this.page = 'Home'
+                    this.user_login = ''
+                    this.password_login = ''
+                    console.log(this.usuario);
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(errorCode)
+                    console.log(errorMessage)
+                    
+                    if(errorCode === 'auth/wrong-password'){
+                        this.errorMessage = 'The password is incorrect'
+                    }
+                    if(errorCode === 'auth/user-not-found'){
+                        this.errorMessage = 'Email is not registered'
+                    }
+                    if(errorCode === 'auth/invalid-email'){
+                        this.errorMessage = 'Email is not valid'
+                    }
+
+                });
+            } else {
+                for(let i = 0; i < this.whiteborder.length; i++) {
+                    this.whiteborder[i].classList.add('red-border');
+                }
+                this.loginError[0].classList.remove('d-none')
+                this.errorMessage = ''
+            }
+        },
+        registerGoogle(){
+            const provider = new firebase.auth.GoogleAuthProvider()
+
+            firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                /** @type {firebase.auth.OAuthCredential} */
+                let token = credential.accessToken
+                let user = result.user
+                alert('inicia sesion')
+                this.page = 'Login'
+            })
+            .catch((error) => {
+                let errorCode = error.code
+                let errorMessage = error.message
+                let email = error.email
+                let credential = error.credential
+            })
+        },
+        logInWithGoogle(){
+            const provider = new firebase.auth.GoogleAuthProvider()
+            firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                /**@type {firebase.auth.OAuthCredential} */
+                var credential = result.credential
+
+                var token = credential.accessToken
+                var user = result.user
+                this.usuario = user
+                this.page = 'Home'
+                this.isLogged = true
+                console.log(this.usuario);
+                console.log(this.usuario.displayName);
+                this.alias = this.usuario.displayName
+            })
+            .catch((error) => {
+                var errorCode = error.code
+                var errorMessage = error.message
+                var email = error.email
+                var credential = error.credential
+            })
+        },
+        logOut(){
+            firebase.auth().signOut()
+            this.isLogged = false
+            this.page = 'Home'
+            this.usuario = null
+            this.alias = ''
+            console.log("Signed out");
+        },
+        removeRedBorder(){
+            for(let i = 0; i < this.whiteborder.length; i++) {
+                this.whiteborder[i].classList.remove('red-border');
+            }
+            this.loginError[0].classList.add('d-none')
+        },
+        //Esta funcion se la pongo al boton de enviar comentario
+        crearComentario(juego){
+            console.log(juego);
+            let gameComment = {
+                gameId: juego._id,
+                usuario : this.usuario,
+                comment: this.comment,
+                // userId: this.usuario.uid
+            }
+            console.log(this.usuario);
+            console.log(gameComment);
+
+            //firebase
+            let newComment = firebase.database().ref().child('comentarios').push().key
+            var updates = {}
+            updates['/comentarios/' + newComment] = gameComment
+            firebase.database().ref().update(updates)
+
+            this.comment = ''
+            this.posts = []
+
+            const comentariosdb = firebase.database().ref('/comentarios')
+            comentariosdb.on('child_added', (data) =>{
+                getComments(data)
+            })
+            this.filteredPost = this.posts.filter(ele => ele.gameId === juego._id)
+            this.comment = ''
+        },
+        seeDetail(game){
             console.log(game._id);
             this.gameId = game._id
             this.detalle = this.results.filter(game => game._id === this.gameId)
             this.page = 'Game Detail'
+            this.posts = []
+            
+            const comentariosdb = firebase.database().ref('/comentarios')
+            comentariosdb.on('child_added', (data) =>{
+                getComments(data)
+            })
+            this.filteredPost = this.posts.filter(ele => ele.gameId === game._id)
+            this.comment = ''
+
             return this.detalle
         },
         sortedFunction(arr,prop){
@@ -71,57 +265,9 @@ Vue.createApp({
             })
             return newArr   
         },
-        //* Ya está OK :)
-        register() {
-            if (this.email_register != '' && this.password_register != '') {
-                firebase.auth().createUserWithEmailAndPassword(this.email_register, this.password_register)
-                .then((userCredential) => {
-                    var user = userCredential.user;
-                    console.log(user)
-                    // lo que va a pasar, cuando termine de registrarse
-                    this.page = 'Login'
-                        this.email_register = ''
-                        this.password_register = ''
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        console.log(errorCode)
-                        console.log(errorMessage)
-                        //MANEJAR ERROR CON ALEERTS, SWEET ALERT O ALGO MAS
-                    });
-                }
-            },
-            logIn() {
-                if (this.user_login != '' && this.password_login != '') {
-                    firebase.auth().signInWithEmailAndPassword(this.user_login, this.password_login)
-                    .then((userCredential) => {
-                        var user = userCredential.user;
-                        
-                        this.usuario = user
-                        this.alias = this.usuario.email
-                        this.isLogged = true
-                        this.page = 'Home'
-                        this.user_login = ''
-                        this.password_login = ''
-                        console.log(this.usuario);
-                    })
-                    .catch((error) => {
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
-                        console.log(errorCode)
-                        console.log(errorMessage)
-                    });
-                }
-            },
-            logOut(){
-                firebase.auth().signOut()
-                this.isLogged = false
-                this.page = 'Home'
-                this.usuario = null
-                this.alias = "Anonimo"
-                console.log("Signed out");
-            },
+        addNewPost(){
+            this.divComment[0].classList.remove('d-none')
+        }
     },
     computed: {
         filtrar(){
@@ -134,8 +280,45 @@ Vue.createApp({
         changeTitle(){
             document.title = `MDHL | ${this.page}` 
         },
+        persistirSesion(){
+            firebase.auth().onAuthStateChanged((user) => {
+                if(user){
+                    console.log(user);
+                    var uid = user.uid
+                    this.usuario = user //de google
+                    this.isLogged = true
+                    this.page = 'Home'
+                    this.user_login = ''
+                    this.password_login = ''
+
+                    //Foto
+                    /* if(user.photoURL){
+                        document.getElementById('avatar').src = user.photoURL
+                        } else {
+                        document.getElementById('avatar').src = this.foto
+                    }
+                    */
+
+                }else{
+                    this.isLogged = false
+                    this.page = 'Home'
+                    this.usuario = null
+                    this.alias = ""
+                    console.log("Signed out");
+                }              
+            })
+        } 
     
         },            
 }).mount('#app')
 
-// https://github.com/firebase/quickstart-js/blob/master/database/scripts/main.jshttps://github.com/firebase/quickstart-js/blob/master/database/scripts/main.js
+
+const getComments = (data) => {
+    let gameComment = {
+        gameId: data.val().gameId,
+        usuario : data.val().usuario,
+        comment: data.val().comment
+        // userId: this.usuario.uid
+    }
+    app.posts.push(gameComment)
+}

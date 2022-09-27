@@ -33,13 +33,21 @@
 /* ------------- DETAIL ---------------- */
 .goback-link{
     text-decoration: none;
+    margin-left: 100px !important;
 }
 .container-detail {
-    background-color: #ffffffb4;
+    background-color: #00000085;
     border-radius: 20px;
     border: 2px solid rgb(255, 255, 255);
 }
 .header-detail{
-    background-color: rgba(190, 32, 32, 0.837);
+    background-color: rgba(7, 1, 42, 0.767);
     border-radius: 20px;
+}
+.footer-detail{
+    background-color: rgba(240, 255, 255, 0.406);
+}
+.comment{
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.564);
 }

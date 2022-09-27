@@ -1,6 +1,6 @@
 .body{
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgb(22, 22, 22) 0%, rgb(19, 32, 96) 100%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(90deg, rgb(55, 5, 72) 0%, rgb(19, 32, 96) 100%, rgb(0, 0, 0) 100%);
 }
 main {
     position: relative;
