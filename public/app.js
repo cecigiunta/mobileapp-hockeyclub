@@ -213,10 +213,9 @@ const app = Vue.createApp({
             console.log(juego);
             let gameComment = {
                 gameId: juego._id,
-                //usuario : this.usuario,
+                usuario: this.usuario.displayName ? this.usuario.displayName : this.usuario.email,
                 comment: this.comment,
-                //usuario : this.usuario.displayName ? this.usuario.displayName : this.usuario.email
-                // userId: this.usuario.uid
+
             }
             console.log(this.usuario.displayName);
             console.log(gameComment);
@@ -300,7 +299,7 @@ const app = Vue.createApp({
 const getComments = (data) => {
     let gameComment = {
         gameId: data.val().gameId,
-        //usuario : data.val().usuario,
+        usuario : data.val().usuario,
         comment: data.val().comment
     }
     app.posts.push(gameComment)
