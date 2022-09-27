@@ -1,5 +1,5 @@
 {
-    "rules": {
+    "rules_version": {
         ".read" : true,
         ".write": true
     }

@@ -349,21 +349,23 @@
                                         <iframe v-bind:src=game.location_map class="rounded col-12 h-50" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                     </div>
                                     <footer class="footer-detail w-100">
-                                        <div v-if="isLogged === false">
+                                        <div v-if="isLogged === true">
                                             <h4 class="text-white p-3">Posts: ({{filteredPost.length}}) </h4>
-                                            <template v-for="post in filteredPost">
-                                                <div class="comment col-11 mx-auto">
-                                                    <div class="d-flex">
-                                                        <img class="ms-2 pb-3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEvklEQVRIicWXbWxTZRTHf+e2MCAxorzUjS5QAmUbmQ5UJkPAKTrCRJ1ME6KgBPCDIcYPCn7Dj5oQ3zDRRJQIWdToBFFeJijBtyiOMNat7Ris3dq1lA0JiXa63ud5/CB7qW03piae5H6453/+53fPzb33eS78TyFjdvQ05uMc7wU9BSyFNgm06mLawth/D+71FePQGzE8DHiAJJirIJkBTASCYA6grd1MvTn478C9TTPAeglYC+YwYu3D5iCu0kRaXcLnwkk1RteAVGHMHsRsZ2pZ9zUNlhYXW1eS8PWS8DVwsbVsDL4yEr4vSfh66GlePjZovGU98ZYU8Zat2Zv75xJveYJ465PEmoty9NhGvKWPeMv6bHLmrY767kesegyP4Z7/SZoWiUzEceVtjDwOnAMU4AXzMeNkM9Pn/5req7UWoQ4tNRSWHMo9aYfPRSSQIOJ/Pqve5f+ALr+fSKB0MBdqK6LTf5quwGdZPZ2BF+jyXyZ6xp0bHA7U0RloyK61LiAc+IPw2eJMLeghHPiNzuCSDM0YIRw4Smfww+Fpa8h8thglj6Id27KClfMulDQxyxvI0GYVhVDyIykqMzQRQ8q5FZs1tLeXZIJTZiNajuDxNmUHm3FoK5lVA9CSBGt8Vm3u3NMYaQCzOROsqEXJpzkbGzmF4jba2qZmaKHQZJRUYEtjTr9t7UNRmw72+/PRMpOUM/eT5/V+jaYVZe3h/PnrB/PB4HX02bsxRJg352BOv04dQuPmTLt7CJzKK0FJktLZiZxGEUO/WYMin6Ruo6W9Dl/7HvodQRRe+nUNIiqnv6QkjpI+LEqGwDAZJaN/5MvmddMbvR3FM2i5hJIrYG3F6l/ALUWhUf1aYmi5EcAJgG2ciIy+YDTGJiF9KzEswzaFfzUzkMpL8kPkCBWFfSP6lQAGGJhYOS6gJX9E06nQU/B7B4Y3UJKHtn6+ekzAyE7Gpzpo7Ng0ysQFaOuXYRM7z+GwJ3EydBOLPBfSio8fdzLJ8x62qcLwHOWz6xDRaTXGWJwMrwPZwU+hpSTDG6mstNNqvusqQKmJiAoMTVxR2I2Wc9hSnXGVeZ7X0CxGU84ds/dmQAFENOWe94FFaFnCBM8rGTUOU42WGIvmRIbAAIrP0VKTVvx9+G60bMCY1Sz2hLPevuFRPitESh5AySa+iaQviUpqUFI/cDoM7HgLLVWcCC8Yylnb0fI6FZ5RdxSDsWymH81OMC8O5r7tvBXNfWhrVyZ4eWE7Sj7COHYAcKzDhZY76Te7GGso6x2ULKXhwnQAbGsHSvazrLB5oCT9FTqWcCGpAJiXEdOEsd7lHvcIy9kI8VW0G6wNoBaCbMOilEp3dEB2phWvcCU4GlsL5gBwGIj/IyiAkTjGPA1WNSKPUFkQHS5bGYZ7CxpQZjOKalQW/VrDRlCsxjZbWFGw/+9y7q/V4fgqjNkLchqH2UJVwbU9YF/EirHMmyALgQ2syoSODAY40pNPyn4VWIPhGCJ7IXWC1YXp29ZDUTfKWg6yDlgB7MehnmWVO5qt7ejggTgQn4+RTSC1YNwgl4GLoAWsaWBuAGIY6hHZxYOu5tFajv0Xpv6SG7GLwUy52uISlh3koRmRMff6P+JPbJf2553hbeYAAAAASUVORK5CYII=">       
-                                                        <p class="col-9 ms-2 fw-bold"> {{post.usuario}} </p>
+                                            <div class="d-flex flex-column align-items-center gap-3">
+                                                <template v-for="post in filteredPost">
+                                                    <div class="comment col-11 mx-auto">
+                                                        <div class="d-flex">
+                                                            <img class="ms-2 pb-2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEvklEQVRIicWXbWxTZRTHf+e2MCAxorzUjS5QAmUbmQ5UJkPAKTrCRJ1ME6KgBPCDIcYPCn7Dj5oQ3zDRRJQIWdToBFFeJijBtyiOMNat7Ris3dq1lA0JiXa63ud5/CB7qW03piae5H6453/+53fPzb33eS78TyFjdvQ05uMc7wU9BSyFNgm06mLawth/D+71FePQGzE8DHiAJJirIJkBTASCYA6grd1MvTn478C9TTPAeglYC+YwYu3D5iCu0kRaXcLnwkk1RteAVGHMHsRsZ2pZ9zUNlhYXW1eS8PWS8DVwsbVsDL4yEr4vSfh66GlePjZovGU98ZYU8Zat2Zv75xJveYJ465PEmoty9NhGvKWPeMv6bHLmrY767kesegyP4Z7/SZoWiUzEceVtjDwOnAMU4AXzMeNkM9Pn/5req7UWoQ4tNRSWHMo9aYfPRSSQIOJ/Pqve5f+ALr+fSKB0MBdqK6LTf5quwGdZPZ2BF+jyXyZ6xp0bHA7U0RloyK61LiAc+IPw2eJMLeghHPiNzuCSDM0YIRw4Smfww+Fpa8h8thglj6Id27KClfMulDQxyxvI0GYVhVDyIykqMzQRQ8q5FZs1tLeXZIJTZiNajuDxNmUHm3FoK5lVA9CSBGt8Vm3u3NMYaQCzOROsqEXJpzkbGzmF4jba2qZmaKHQZJRUYEtjTr9t7UNRmw72+/PRMpOUM/eT5/V+jaYVZe3h/PnrB/PB4HX02bsxRJg352BOv04dQuPmTLt7CJzKK0FJktLZiZxGEUO/WYMin6Ruo6W9Dl/7HvodQRRe+nUNIiqnv6QkjpI+LEqGwDAZJaN/5MvmddMbvR3FM2i5hJIrYG3F6l/ALUWhUf1aYmi5EcAJgG2ciIy+YDTGJiF9KzEswzaFfzUzkMpL8kPkCBWFfSP6lQAGGJhYOS6gJX9E06nQU/B7B4Y3UJKHtn6+ekzAyE7Gpzpo7Ng0ysQFaOuXYRM7z+GwJ3EydBOLPBfSio8fdzLJ8x62qcLwHOWz6xDRaTXGWJwMrwPZwU+hpSTDG6mstNNqvusqQKmJiAoMTVxR2I2Wc9hSnXGVeZ7X0CxGU84ds/dmQAFENOWe94FFaFnCBM8rGTUOU42WGIvmRIbAAIrP0VKTVvx9+G60bMCY1Sz2hLPevuFRPitESh5AySa+iaQviUpqUFI/cDoM7HgLLVWcCC8Yylnb0fI6FZ5RdxSDsWymH81OMC8O5r7tvBXNfWhrVyZ4eWE7Sj7COHYAcKzDhZY76Te7GGso6x2ULKXhwnQAbGsHSvazrLB5oCT9FTqWcCGpAJiXEdOEsd7lHvcIy9kI8VW0G6wNoBaCbMOilEp3dEB2phWvcCU4GlsL5gBwGIj/IyiAkTjGPA1WNSKPUFkQHS5bGYZ7CxpQZjOKalQW/VrDRlCsxjZbWFGw/+9y7q/V4fgqjNkLchqH2UJVwbU9YF/EirHMmyALgQ2syoSODAY40pNPyn4VWIPhGCJ7IXWC1YXp29ZDUTfKWg6yDlgB7MehnmWVO5qt7ejggTgQn4+RTSC1YNwgl4GLoAWsaWBuAGIY6hHZxYOu5tFajv0Xpv6SG7GLwUy52uISlh3koRmRMff6P+JPbJf2553hbeYAAAAASUVORK5CYII=">       
+                                                            <p class="col-9 ms-2 mt-1 fw-bold"> {{post.usuario}} </p>
+                                                        </div>
+                                                        <p class="ms-4 pb-1 col-11"> {{post.comment}} </p>   
                                                     </div>
-                                                    <p class="ms-4 pb-2"> {{post.comment}} </p>   
+                                                </template>
+                                                <button class="addpost-btn col-10 mx-auto text-white my-2" @click="addNewPost"> Add new post </button>
+                                                <div class="comment-dnone d-none d-flex flex-column align-items-center">
+                                                    <textarea v-model="comment" class="form-control-lg input-comment col-11 my-3 fs-5"></textarea>
+                                                    <button class="sendpost-btn col-8 text-white mb-3" @click="crearComentario(game)">Send</button>
                                                 </div>
-                                            </template>
-                                            <button class="btn btn-outline-dark col-10 mx-auto" @click="addNewPost"> (+) Add new post: </button>
-                                            <div class="comment-dnone d-none">
-                                                <input v-model="comment" class="col-12 my-3"></input>
-                                                <button class="btn btn-success col-10" @click="crearComentario(game)" >Post</button>
                                             </div>
                                         </div>
                                     </footer>

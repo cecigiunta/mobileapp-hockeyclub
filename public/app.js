@@ -29,14 +29,7 @@ const app = Vue.createApp({
             divComment: document.getElementsByClassName('comment-dnone'),
             comment: '',
             posts: [],
-            filteredPost: [
-                {comment: 'Hola casod hsaid sasdhasj kaqdkjsadksajkdsjdkjaskdjks askdjakjdkajsdkjak',
-                usuario: 'Cecilia Giunta'},
-                {comment: 'Hola casod hsaid sasdhasj kaqdkjsadksajkdsjdkjaskdjks askdjakjdkajsdkjak',
-                usuario: 'Cecilia '},
-                {comment: 'Hola casod hsaid sasdhasj kaqdkjsadksajkdsjdkjaskdjks askdjakjdkajsdkjak',
-                usuario: 'hola'}
-            ],
+            filteredPost: [],
             
 
             results: [],
@@ -220,11 +213,12 @@ const app = Vue.createApp({
             console.log(juego);
             let gameComment = {
                 gameId: juego._id,
-                usuario : this.usuario,
+                //usuario : this.usuario,
                 comment: this.comment,
+                //usuario : this.usuario.displayName ? this.usuario.displayName : this.usuario.email
                 // userId: this.usuario.uid
             }
-            console.log(this.usuario);
+            console.log(this.usuario.displayName);
             console.log(gameComment);
 
             //firebase
@@ -290,15 +284,6 @@ const app = Vue.createApp({
                     this.page = 'Home'
                     this.user_login = ''
                     this.password_login = ''
-
-                    //Foto
-                    /* if(user.photoURL){
-                        document.getElementById('avatar').src = user.photoURL
-                        } else {
-                        document.getElementById('avatar').src = this.foto
-                    }
-                    */
-
                 }else{
                     this.isLogged = false
                     this.page = 'Home'
@@ -308,7 +293,6 @@ const app = Vue.createApp({
                 }              
             })
         } 
-    
         },            
 }).mount('#app')
 
@@ -316,9 +300,9 @@ const app = Vue.createApp({
 const getComments = (data) => {
     let gameComment = {
         gameId: data.val().gameId,
-        usuario : data.val().usuario,
+        //usuario : data.val().usuario,
         comment: data.val().comment
-        // userId: this.usuario.uid
     }
     app.posts.push(gameComment)
 }
+// userId: this.usuario.uid

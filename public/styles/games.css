@@ -51,3 +51,18 @@
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.564);
 }
+.addpost-btn{
+    background-color: rgba(81, 41, 244, 0.771);
+    padding: 10px;
+    border-radius: 20px;
+}
+.input-comment{
+    border-radius: 20px;
+    background-color: rgba(224, 223, 229, 0.694) !important;
+    width: 100% !important;
+}
+.sendpost-btn{
+    background-color: rgba(0, 0, 0, 0.771);
+    padding: 10px;
+    border-radius: 20px;
+}
