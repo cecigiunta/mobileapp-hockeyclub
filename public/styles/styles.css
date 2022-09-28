@@ -74,9 +74,8 @@ main {
         padding: 20px;
         width: 10%;
         position: fixed;
-        left: 0;
         bottom: 0;
-        top: 30px;
+        top: 0;
     }
     .carousel{
         width: 60%;

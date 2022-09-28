@@ -22,10 +22,10 @@ const app = Vue.createApp({
             loginError: document.getElementsByClassName('login-error'),
 
             //user variables
-            alias: '', //el nombre q voy a mostrar en la app
+            alias: '',
             usuario: null,
 
-            //Comentarios
+            //comment variables
             divComment: document.getElementsByClassName('comment-dnone'),
             comment: '',
             posts: [],
@@ -62,7 +62,6 @@ const app = Vue.createApp({
                 firebase.auth().createUserWithEmailAndPassword(this.email_register, this.password_register)
                 .then((userCredential) => {
                     var user = userCredential.user;
-                    console.log(user)
                     this.alias = this.username_register
                     this.page = 'Login'
                     this.email_register = ''
@@ -97,11 +96,9 @@ const app = Vue.createApp({
             console.log(this.password_register);
             if(!this.password_regEx.test(this.password_register)){
                 this.errorMessage = 'Password has to contain: one uppercase, one lowercase, one digit and 8 characters '
-                console.log("incorrecta");
             }
             else {
-                this.errorMessage = 'Good pass!'
-                console.log("correcta");
+                this.errorMessage = 'Password ok'
             } 
         },
         confirmPassword(){
@@ -124,7 +121,6 @@ const app = Vue.createApp({
                     this.page = 'Home'
                     this.user_login = ''
                     this.password_login = ''
-                    console.log(this.usuario);
                 })
                 .catch((error) => {
                     var errorCode = error.code;
@@ -141,7 +137,6 @@ const app = Vue.createApp({
                     if(errorCode === 'auth/invalid-email'){
                         this.errorMessage = 'Email is not valid'
                     }
-
                 });
             } else {
                 for(let i = 0; i < this.whiteborder.length; i++) {
@@ -153,14 +148,12 @@ const app = Vue.createApp({
         },
         registerGoogle(){
             const provider = new firebase.auth.GoogleAuthProvider()
-
             firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
                 /** @type {firebase.auth.OAuthCredential} */
                 let token = credential.accessToken
                 let user = result.user
-                alert('inicia sesion')
                 this.page = 'Login'
             })
             .catch((error) => {
@@ -183,8 +176,6 @@ const app = Vue.createApp({
                 this.usuario = user
                 this.page = 'Home'
                 this.isLogged = true
-                console.log(this.usuario);
-                console.log(this.usuario.displayName);
                 this.alias = this.usuario.displayName
             })
             .catch((error) => {
@@ -200,7 +191,6 @@ const app = Vue.createApp({
             this.page = 'Home'
             this.usuario = null
             this.alias = ''
-            console.log("Signed out");
         },
         removeRedBorder(){
             for(let i = 0; i < this.whiteborder.length; i++) {
@@ -208,19 +198,13 @@ const app = Vue.createApp({
             }
             this.loginError[0].classList.add('d-none')
         },
-        //Esta funcion se la pongo al boton de enviar comentario
         crearComentario(juego){
             console.log(juego);
             let gameComment = {
                 gameId: juego._id,
                 usuario: this.usuario.displayName ? this.usuario.displayName : this.usuario.email,
                 comment: this.comment,
-
             }
-            console.log(this.usuario.displayName);
-            console.log(gameComment);
-
-            //firebase
             let newComment = firebase.database().ref().child('comentarios').push().key
             var updates = {}
             updates['/comentarios/' + newComment] = gameComment
@@ -278,7 +262,7 @@ const app = Vue.createApp({
                 if(user){
                     console.log(user);
                     var uid = user.uid
-                    this.usuario = user //de google
+                    this.usuario = user 
                     this.isLogged = true
                     this.page = 'Home'
                     this.user_login = ''
@@ -288,13 +272,11 @@ const app = Vue.createApp({
                     this.page = 'Home'
                     this.usuario = null
                     this.alias = ""
-                    console.log("Signed out");
                 }              
             })
         } 
         },            
 }).mount('#app')
-
 
 const getComments = (data) => {
     let gameComment = {
@@ -304,4 +286,3 @@ const getComments = (data) => {
     }
     app.posts.push(gameComment)
 }
-// userId: this.usuario.uid
