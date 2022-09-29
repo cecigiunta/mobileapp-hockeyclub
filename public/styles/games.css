@@ -2,17 +2,14 @@
     border-radius: 20px;
     background-color: rgba(2, 0, 8, 0.225);
 }
-
 .search-btn{
     background-color: rgba(255, 249, 240, 0.172);
     padding: 10px;
     border-radius: 20px;
 }
-
 .container-games {
     padding: 15px 20px;
 }
-
 .container-game {
     gap: 20px;
     background-color: rgba(255, 255, 255, 0.45);
@@ -22,7 +19,6 @@
     box-shadow: 0px 18px 12px -13px rgba(0,0,0,0.63);
     transition: all .2s ease-in-out;
 }
-
 .link-games{
     text-decoration: none;
     color: rgb(255, 255, 255);
@@ -30,7 +26,7 @@
 
 
 
-/* ------------- DETAIL ---------------- */
+/* ------------- Game Detail ---------------- */
 .goback-link{
     text-decoration: none;
     margin-left: 100px !important;
@@ -47,6 +43,8 @@
 .footer-detail{
     background-color: rgba(240, 255, 255, 0.406);
 }
+
+/* ------------- Comments ---------------- */
 .comment{
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.564);
@@ -56,10 +54,11 @@
     padding: 10px;
     border-radius: 20px;
 }
-.input-comment{
-    border-radius: 20px;
-    background-color: rgba(224, 223, 229, 0.694) !important;
+.textarea-comment{
+    border-radius: 20px !important;
+    background-color: rgba(229, 223, 224, 0.694) !important;
     width: 100% !important;
+    width: fit-content !important;
 }
 .sendpost-btn{
     background-color: rgba(0, 0, 0, 0.771);

@@ -8,7 +8,7 @@
     border: 3px solid white !important;
 }
 
-/* About us & RulesPolicy   */
+/* ------------- About us and Rules ---------------- */
 .accordion-body-container{
     background-color: rgb(255, 255, 255);
     margin: 10px;
@@ -24,7 +24,7 @@
 }
 
 
-/* ARTICLE - LISTS */
+/* ------------- Article Lists ---------------- */
 .articleRules{
     margin: 20px;
     padding: 10px;

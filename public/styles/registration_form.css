@@ -6,8 +6,6 @@
     justify-content: center;
     border-radius: 20px;
 }
-
-/* FIELDSET */
 .fieldsetContainer1{
     border: none;
     width: 100%;
@@ -17,7 +15,6 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .labelForm{
     display: inline-block;
     text-align: center;
@@ -35,8 +32,7 @@
     width: 90%;
 }
 
-
-/* CLOSEST SCHOOL & UNIFORM SELECTS */
+/* ---------- Closest School - Uniform Select ------------- */
 section{
     width: 100%;
     margin-bottom: 30px;
@@ -50,7 +46,6 @@ section{
     width: 100%;
     text-align: center;
 }
-
 .selectForm{
     text-align: center;
     margin: auto;
@@ -61,7 +56,7 @@ section{
     border-radius: 20px;
 }
 
-/* PERMISSION */
+/* ------------- Permission ---------------- */
 .btn-accordion{
     background-color: rgba(253, 253, 253, 0.521);
     border: none !important;
@@ -69,7 +64,7 @@ section{
     width: 90%;
 }
 
-/* BUTTON */
+/* ------------- Button ---------------- */
 .form .submit {
     padding: 10px 40px;
     color: white;
@@ -79,7 +74,7 @@ section{
     border-radius: 20px;
 }
 
-/* VALIDATE */
+/* ------------- Field Validation ---------------- */
 .valid:valid {
     background-color: rgba(216, 255, 219, 0.371);
     border: 1px solid rgb(114, 208, 114); 

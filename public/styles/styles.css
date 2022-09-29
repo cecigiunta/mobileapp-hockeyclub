@@ -12,7 +12,7 @@ main {
     box-sizing: border-box;
 }
 
-/*------------------------------  Header -----------------------------*/
+/* ------------- Header ---------------- */
 .header{
     background-color: rgba(7, 2, 1, 0.605);
     padding: 5px;
@@ -34,9 +34,10 @@ main {
 }
 
 
-/*------------------------------  Footer -----------------------------*/
+/* ------------- Footer ---------------- */
 .footer{
     background-color: rgba(0, 0, 0, 0.642);
+    margin-top: 50px;
     display: flex;
     height: 60px;
     padding: 20px;
@@ -50,7 +51,7 @@ main {
 }
 
 
-/* Animations  */
+/* ------------- Animations ---------------- */
 .animate__fadeInRight{
     animation-duration: 1s;
 }
@@ -58,10 +59,13 @@ main {
     animation-duration: 2s;
 }
 
-/*   Media Queries  */
+/* ------------- Media queries ---------------- */
 @media only screen and (min-width: 500px) {
     .header{
         padding: 20px;
+    }
+    .header-logo{
+        margin: auto
     }
     main {
         margin-bottom: 10px;
@@ -70,12 +74,14 @@ main {
         background-color: rgba(0, 0, 0, 0.642);
         display: flex;
         flex-direction: column;
+        margin-top: 0;
         height: 100vh;
         padding: 20px;
         width: 10%;
         position: fixed;
         bottom: 0;
         top: 0;
+        z-index: 1;
     }
     .carousel{
         width: 60%;
@@ -86,4 +92,3 @@ main {
         margin: auto;
     }
 }
-

@@ -4,7 +4,7 @@ const app = Vue.createApp({
             url: './api.json',
             search: '',
             gameId : '',
-            page: 'Games', 
+            page: 'Home', 
             
             //register variables
             username_register: '',
@@ -48,7 +48,6 @@ const app = Vue.createApp({
                 this.october_games = this.sortedFunction((this.results.filter(game => game.month_date === 10)), "day_date")
             })
             .catch(err => console.error(err))
-            // this.detalle = JSON.parse(localStorage.getItem('detalle')) || []
     },
     mounted(){
         const comentariosdb = firebase.database().ref('/comentarios')
@@ -98,7 +97,7 @@ const app = Vue.createApp({
                 this.errorMessage = 'Password has to contain: one uppercase, one lowercase, one digit and 8 characters '
             }
             else {
-                this.errorMessage = 'Password ok'
+                this.errorMessage = '✔'
             } 
         },
         confirmPassword(){
@@ -221,7 +220,6 @@ const app = Vue.createApp({
             this.comment = ''
         },
         seeDetail(game){
-            console.log(game._id);
             this.gameId = game._id
             this.detalle = this.results.filter(game => game._id === this.gameId)
             this.page = 'Game Detail'

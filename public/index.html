@@ -18,7 +18,7 @@
 </head>
 <body class="body">
     <div id="app">
-        <!-- {{persistirSesion}} -->
+        {{persistirSesion}}
         <template v-if="page === 'Login'">
             <section class="body-login">
                 <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
@@ -93,7 +93,7 @@
                 <img src="./assets/logo2.png" alt="mylogo" class="header-logo">
                 <div class="d-flex gap-3 mt-3">
                     <template v-if="isLogged === false">
-                        <span  @click="page = 'Login'">
+                        <span  @click="page = 'Login'" class="me-3">
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABmJLR0QA/wD/AP+gvaeTAAADJklEQVRYhc2YzUtUURTAzzURx0lIklTGMmgb0SJskbVQaFPowjBqUxD9BYVptCkzsvoH+iKM2qVFi6CgoHAZUYsKIskipWJMw9SKml+Ld15z5/Xue/MleDZ35p6P+3vnHO6974ksIzGlOAM1ItIoIlUi8ktEPhljFsoBltfiwH7gJjABZMiVDPAOuAHsAxJLAZEAeoGvFCbTwFGgulwgXcAHa4HvwC3gANAKpDRjKWArcBAYUTtf3gO7S4EwwAmrFDNAn/ZJPv5JoB+YVf8/+r+wPlWQa9aTjQCri3yoeuC2FetKQUCaETQrAy5noBpoA7p1DO0NoAI4bWW5P1+QLk0pwIDDJgmcB+YCDTsHDLlKCQxaJdsVB5KwmnUkLCNAHfCMaHkKrHJkyC/ZhCuTvnGvGs64egS4EwPiy6jDvx74pjZHXCA1ZPeRPodNa54gvmxxxDmu+mnCNka8nRW8/cFV8zMFwgw64iSBebXZ689XWDZ+Q92POF82OOZdEmpvjJkXkQeBdXNgtul4NyL4zwJhouz9ddpyYICkiKzTudcRAV4UCPM8QvdKx5acvgHWW3VudnkDzcBinv2yAKQiYq21bFtEsmWyO3raFcAY81FEQjfCEDlljJmM0Ket3zmZabAoG6NWwDu3LsRk5Rwx5w/QZNk32IpKskfApugH/uezA2839U/lWWAUaIv3FgE2q99vYEVQ+VaVh/IJFvCtKsLnsK73xp+rtPQPxdsXOkTkakwgIyIbRaRFRBpEpB5Ii8hnEZkQkZfGGGJ4OnR8FLbAHiWdI+SQU5sO4DIwFdMzU8AloN0Rp47sTbA7zKAKmFSD3oBuO/AkBsAljwn0Ed6NEV0vvMR410LwmjGF19hni4QIykW8B24ieyAfCwVRmFq8ewbAPWCsTCC+jGlc8F5pVjphFKid/9+Hyi0ZYGckiAU0tMQwQ3mBKEwFMLxEIMNARTxFLpDBu3SXq2QZjVf8+z3QSfy+EidTQGfREAGgWuAkkC4QIq1+tWUBCUAlgB7gOjBO+FeIcdX3UOBXiFK/zyREZI2IVIvIDxH5YoxZLCXmspG/aRKUOAm+lM8AAAAASUVORK5CYII=">
                         </span>
                     </template>
@@ -117,7 +117,7 @@
                         <h3 class="title-header text-white text-center py-3 mb-0">Welcome to MDHL</h3>
                     </section>
 
-                    <div class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
+                    <div class="d-flex flex-column align-items-center mb-5 pb-5 gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                         <div id="carouselExampleCaptions" class="carousel slide mb-5 mt-0" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -258,7 +258,7 @@
                             </div>
                         </div>
                         
-                        <div class="accordion-item accordion-home mx-auto col-10 py-2 animate__fadeInRight">
+                        <div class="accordion-item accordion-home mx-auto mb-5 col-10 py-2 animate__fadeInRight">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
                                     <h3 class="ms-4 fw-bold py-2 text-white">Contact</h3>
@@ -275,10 +275,9 @@
                             </div>
                         </div>
                     </div>
-                   
                 </section>
 
-                <section v-if="page === 'Games'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-10 mx-auto">
+                <section v-if="page === 'Games'" class="d-flex flex-column align-items-center mb-5 pb-5 gap-2 col-12 col-sm-10 mx-auto">
                     <h1 class="text-white py-3 text-center">Games</h1>
                     <form  class="my-4 mx-auto col-11 d-flex justify-content-center">
                         <input v-model="search" type="text" class="input-search col-8 text-white">
@@ -316,10 +315,10 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Game Detail'" class="gap-2 col-12 col-lg-10">
+                <section v-if="page === 'Game Detail'" class="gap-2 col-12 col-lg-10 mb-5 pb-5 mx-auto">
                     <h3 class="text-white m-3" @click="page = 'Games'"> <span class="text-danger goback-link"><</span>< Go back</h3>
                     <div class="d-flex flex-column align-items-center">                    
-                        <div v-for="game in detalle" class="col-12 col-md-9 mx-auto my-5">
+                        <div v-for="game in detalle" class="col-12 col-md-8 mx-auto my-5">
                             <div v-if="detalle.length === 0" class="col-3 mx-auto my-5 py-2">
                                 <div class="text-warning">
                                     <div class="spinner-border ms-4" role="status"></div>
@@ -328,7 +327,7 @@
                             </div>
                         
                             <div v-if="detalle.lenght != 0">
-                                <div class="container-detail col-11 mb-3 d-flex flex-column align-items-center gap-3 mx-auto">
+                                <div class="container-detail col-11 mb-5 pb-5  d-flex flex-column align-items-center gap-3 mx-auto">
                                     <p class="text-white header-detail w-100 mb-3 py-2 text-center fs-1">
                                         <span class="text-warning">{{game.team1}}</span>
                                             vs. 
@@ -355,7 +354,7 @@
                                             <div class="d-flex flex-column align-items-center gap-3">
                                                 <template v-for="post in filteredPost">
                                                     <div class="comment col-11 mx-auto">
-                                                        <div class="d-flex">
+                                                        <div class="d-flex mt-2">
                                                             <img class="ms-2 pb-2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEvklEQVRIicWXbWxTZRTHf+e2MCAxorzUjS5QAmUbmQ5UJkPAKTrCRJ1ME6KgBPCDIcYPCn7Dj5oQ3zDRRJQIWdToBFFeJijBtyiOMNat7Ris3dq1lA0JiXa63ud5/CB7qW03piae5H6453/+53fPzb33eS78TyFjdvQ05uMc7wU9BSyFNgm06mLawth/D+71FePQGzE8DHiAJJirIJkBTASCYA6grd1MvTn478C9TTPAeglYC+YwYu3D5iCu0kRaXcLnwkk1RteAVGHMHsRsZ2pZ9zUNlhYXW1eS8PWS8DVwsbVsDL4yEr4vSfh66GlePjZovGU98ZYU8Zat2Zv75xJveYJ465PEmoty9NhGvKWPeMv6bHLmrY767kesegyP4Z7/SZoWiUzEceVtjDwOnAMU4AXzMeNkM9Pn/5req7UWoQ4tNRSWHMo9aYfPRSSQIOJ/Pqve5f+ALr+fSKB0MBdqK6LTf5quwGdZPZ2BF+jyXyZ6xp0bHA7U0RloyK61LiAc+IPw2eJMLeghHPiNzuCSDM0YIRw4Smfww+Fpa8h8thglj6Id27KClfMulDQxyxvI0GYVhVDyIykqMzQRQ8q5FZs1tLeXZIJTZiNajuDxNmUHm3FoK5lVA9CSBGt8Vm3u3NMYaQCzOROsqEXJpzkbGzmF4jba2qZmaKHQZJRUYEtjTr9t7UNRmw72+/PRMpOUM/eT5/V+jaYVZe3h/PnrB/PB4HX02bsxRJg352BOv04dQuPmTLt7CJzKK0FJktLZiZxGEUO/WYMin6Ruo6W9Dl/7HvodQRRe+nUNIiqnv6QkjpI+LEqGwDAZJaN/5MvmddMbvR3FM2i5hJIrYG3F6l/ALUWhUf1aYmi5EcAJgG2ciIy+YDTGJiF9KzEswzaFfzUzkMpL8kPkCBWFfSP6lQAGGJhYOS6gJX9E06nQU/B7B4Y3UJKHtn6+ekzAyE7Gpzpo7Ng0ysQFaOuXYRM7z+GwJ3EydBOLPBfSio8fdzLJ8x62qcLwHOWz6xDRaTXGWJwMrwPZwU+hpSTDG6mstNNqvusqQKmJiAoMTVxR2I2Wc9hSnXGVeZ7X0CxGU84ds/dmQAFENOWe94FFaFnCBM8rGTUOU42WGIvmRIbAAIrP0VKTVvx9+G60bMCY1Sz2hLPevuFRPitESh5AySa+iaQviUpqUFI/cDoM7HgLLVWcCC8Yylnb0fI6FZ5RdxSDsWymH81OMC8O5r7tvBXNfWhrVyZ4eWE7Sj7COHYAcKzDhZY76Te7GGso6x2ULKXhwnQAbGsHSvazrLB5oCT9FTqWcCGpAJiXEdOEsd7lHvcIy9kI8VW0G6wNoBaCbMOilEp3dEB2phWvcCU4GlsL5gBwGIj/IyiAkTjGPA1WNSKPUFkQHS5bGYZ7CxpQZjOKalQW/VrDRlCsxjZbWFGw/+9y7q/V4fgqjNkLchqH2UJVwbU9YF/EirHMmyALgQ2syoSODAY40pNPyn4VWIPhGCJ7IXWC1YXp29ZDUTfKWg6yDlgB7MehnmWVO5qt7ejggTgQn4+RTSC1YNwgl4GLoAWsaWBuAGIY6hHZxYOu5tFajv0Xpv6SG7GLwUy52uISlh3koRmRMff6P+JPbJf2553hbeYAAAAASUVORK5CYII=">       
                                                             <p class="col-9 ms-2 mt-1 fw-bold"> {{post.usuario}} </p>
                                                         </div>
@@ -363,8 +362,8 @@
                                                     </div>
                                                 </template>
                                                 <button class="addpost-btn col-10 mx-auto text-white my-2" @click="addNewPost"> Add new post </button>
-                                                <div class="comment-dnone d-none d-flex flex-column align-items-center">
-                                                    <textarea v-model="comment" class="form-control-lg input-comment col-11 my-3 fs-5"></textarea>
+                                                <div class="comment-dnone d-none d-flex flex-column align-items-center col-10">
+                                                    <textarea v-model="comment" class="w-100 textarea-comment col-11 my-3 fs-5 p-2"></textarea>
                                                     <button class="sendpost-btn col-8 text-white mb-3" @click="crearComentario(game)">Send</button>
                                                 </div>
                                             </div>
@@ -377,7 +376,7 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Teams'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 mx-auto">
+                <section v-if="page === 'Teams'" class="d-flex flex-column align-items-center mb-5 pb-5 gap-2 col-12 col-sm-8 mx-auto">
                     <h1 class="text-white my-4 text-center">Teams</h1>
                     {{filtrar}}
                     <h6 class="text-info text-center">
@@ -408,7 +407,7 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Calendar'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
+                <section v-if="page === 'Calendar'" class="d-flex flex-column align-items-center mb-5 pb-5 gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                     <h1 class="text-white text-center py-3">See our fall schedule</h1>
                 
                     <div class="container-calendar col-11 p-2 mb-3 d-flex flex-column gap-3 mx-auto">
@@ -440,7 +439,7 @@
                     </div>
                 </section>
 
-                <section v-if="page === 'Register Form'" class="d-flex flex-column align-items-center gap-2 col-12 col-sm-8 col-md-6 mx-auto">
+                <section v-if="page === 'Register Form'" class="d-flex flex-column align-items-center mb-5 pb-5 gap-2 col-12 col-sm-8 col-md-6 mx-auto">
                     <h3 class="text-white m-3" @click="page = 'Teams'"> <span class="text-danger ms-3 goback-link"><</span>< Go back</h3>
                     <h1 class="text-white my-4 text-center">Registration Form</h1>
 
@@ -576,7 +575,7 @@
         </template>
     </div>
 
-    <!-- SCRIPTS DE FIREBASE -->
+    <!-- Scripts Firebase -->
     <script src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
     <script src="/__/firebase/9.8.3/firebase-database-compat.js"></script>
     <script src="/__/firebase/9.8.3/firebase-auth-compat.js"></script>
@@ -598,7 +597,6 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
     </script>
-
 
     <script src="https://kit.fontawesome.com/6c7cfa0dfc.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
